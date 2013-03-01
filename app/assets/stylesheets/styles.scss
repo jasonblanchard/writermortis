@@ -1,0 +1,19 @@
+.title {
+    width: 50%;
+    margin: 0 auto;
+
+    h1 {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
+
+.user-menu {
+    width: 30%;
+    float: right;
+
+    ul li {
+        display: inline;
+    }
+}
