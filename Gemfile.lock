@@ -69,6 +69,8 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     ffi (1.4.0)
+    figaro (0.6.1)
+      rails (>= 3, < 5)
     gherkin (2.11.6)
       json (>= 1.7.6)
     hike (1.2.1)
@@ -163,6 +165,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   devise
+  figaro
   jquery-rails
   rails (= 3.2.7)
   rspec-rails (~> 2.0)
