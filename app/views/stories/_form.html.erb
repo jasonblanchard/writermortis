@@ -1,4 +1,14 @@
 <%= form_for @story do |f| %>
+    <div class='error-messages'>
+        <% if @story.errors.any? %>
+            <div class="alert">
+                <% @story.errors.full_messages.each do |error| %>
+                    <p><%= error %></p>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+
     <div>
         <%= f.label :title %>
     </div>

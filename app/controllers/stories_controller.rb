@@ -17,7 +17,7 @@ class StoriesController < ApplicationController
         if @story.save
             redirect_to @story
         else
-            render_action :create
+            render :new
         end
     end
 
