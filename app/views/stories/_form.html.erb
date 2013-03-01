@@ -1,0 +1,9 @@
+<%= form_for @story do |f| %>
+    <div>
+        <%= f.label :title %>
+    </div>
+    <div>
+        <%= f.text_field :title %>
+    </div>
+    <%= f.submit :class => 'btn' %>
+<% end %>
