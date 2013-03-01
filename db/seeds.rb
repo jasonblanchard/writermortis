@@ -6,5 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.new(:email => ENV['TEST_USER_PASSWORD'], :password => ENV['TEST_USER_PASSWORD'])
+user = User.find_or_create_by_email(ENV['TEST_USER_EMAIL'].dup)
+user.password = ENV['TEST_USER_PASSWORD'].dup
 user.save
