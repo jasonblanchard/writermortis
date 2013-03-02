@@ -1,6 +1,6 @@
 Exquisitecorpse::Application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => 'registrations' }, :path => 'accounts', :path_names => { :sign_in => 'login', :sign_up => 'new', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification' }
 
     root :to => 'stories#index'
 

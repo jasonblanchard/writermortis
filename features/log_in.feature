@@ -10,14 +10,15 @@ Feature: Log in to the site
 
     Scenario:
         When I am on the homepage
-        And I click 'Login'
-        Then I should see 'Sign In'
-        And when I fill in "user_email" with "test@example.com"
+        And I click "Login"
+        Then I should see "Sign in"
+        And I fill in "user_email" with "test@example.com"
         And I fill in "user_password" with "testpass"
-        And I click 'Sign in'
+        And I push "Sign in"
         Then I should see "Signed in successfully."
 
     Scenario:
-        When I am on the homepage
-        And I click 'Logout'
+        When I am logged in
+        And I am on the homepage
+        And I click "Logout"
         Then I should see "Signed out successfully"
