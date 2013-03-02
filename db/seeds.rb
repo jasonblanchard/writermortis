@@ -12,3 +12,4 @@ user.save
 
 story = Story.find_or_create_by_title("My First Corpse");
 story.user_id = user.id
+story.save
