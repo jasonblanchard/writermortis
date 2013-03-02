@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div class='page-wrapper'>
+    <div class='page-wrapper container-fluid'>
         <% if !notice.nil? %>
             <div class='alert alert-success'><%= notice %></div>
         <% end %>
@@ -16,16 +16,18 @@
         <% end %>
 
         <div class='header'>
-            <div class='user-menu'>
-                <ul>
-                    <% if user_signed_in? %>
-                        <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
-                    <% else %>
-                        <li><%= link_to "Login", new_user_session_path  %></li>
-                    <% end %>
-                </ul>
+            <div class="row-fluid">
+                <div class='user-menu span4 offset9'>
+                    <ul>
+                        <% if user_signed_in? %>
+                            <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
+                        <% else %>
+                            <li><%= link_to "Login", new_user_session_path  %></li>
+                        <% end %>
+                    </ul>
+                </div>
+                <div class="title span8 offset2"><h1>Exquisite Corpse</h1></div>
             </div>
-            <div class="title"><h1>Exquisite Corpse</h1></div>
         </div>
 
         <%= yield %>
