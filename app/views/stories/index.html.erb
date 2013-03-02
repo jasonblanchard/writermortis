@@ -1,3 +1,5 @@
+<div><%= link_to "New Story", new_story_path, :class=> 'btn' %></div>
+<h2>Stories</h2>
 <%= div_for @stories do |story| %>
     <%= link_to story.title, story %>
 <% end %>
