@@ -11,6 +11,7 @@ class Story < ActiveRecord::Base
   end
 
   def done?
-      total_slices == 0
+      slices_left <= 0
   end
+
 end

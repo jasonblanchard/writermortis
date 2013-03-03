@@ -1,4 +1,11 @@
 <h3><%= @story.title %></h3>
+Slices left: <%= @story.slices_left %>
+
+
+<% if @story.done? %>
+    <div>The story is done:</div>
+    <%= @complete_story %>
+<% end %>
 
 <% unless @story.done? %>
     <div class="row-fluid">
@@ -17,10 +24,4 @@
             <%= render 'slices/form' %>
         </div>
     </div>
-        <%= @story.slices.length %>
-<% end %>
-
-<% if @story.done? %>
-    <div>The story is done:</div>
-    <%= @complete_story %>
 <% end %>
