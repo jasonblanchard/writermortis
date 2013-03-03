@@ -54,7 +54,6 @@ Given /^"(.*?)" is logged in$/ do |email|
     click_button "Sign in"
 end
 
-Then /^debug$/ do
-    @story = Story.find_by_title("Call of Cthulhu")
-    breakpoint
+Then /^I should not see "(.*?)"$/ do |arg1|
+    page.should have_no_content(arg1)
 end

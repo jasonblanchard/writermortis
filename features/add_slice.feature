@@ -41,3 +41,4 @@ Feature: Add slice to a story
         And I push "Create Slice"
         Then I should see "The story is done:"
         And I should see "The men were going to an island of unicorns. And they were very excited. They loved unicorns."
+        And I should not see "Create Slice"
