@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303183916) do
+ActiveRecord::Schema.define(:version => 20130303184832) do
+
+  create_table "slice", :force => true do |t|
+    t.text     "body"
+    t.integer  "story_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "slice", ["story_id"], :name => "index_slice_on_story_id"
+  add_index "slice", ["user_id"], :name => "index_slice_on_user_id"
 
   create_table "stories", :force => true do |t|
     t.string   "title"
