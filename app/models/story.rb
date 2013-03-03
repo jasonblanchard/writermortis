@@ -1,5 +1,5 @@
 class Story < ActiveRecord::Base
-  attr_accessible :title
+  attr_accessible :title, :max_sentences, :total_slices
 
   validates :title, :presence => true
 
