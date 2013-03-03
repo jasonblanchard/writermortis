@@ -8,6 +8,10 @@ Feature: Add slice to a story
             | Title             | Max Sentences | Total Slices  |
             | Call of Cthulhu   | 5             | 7             |
 
+        Given the following users exist:
+            | email             | password  |
+            | test@example.com  | testpass  |
+
         Given I am logged in
 
     Scenario:
