@@ -5,4 +5,8 @@ class Story < ActiveRecord::Base
 
   belongs_to :user
   has_many :slices
+
+  def done?
+      slices.length == total_slices
+  end
 end

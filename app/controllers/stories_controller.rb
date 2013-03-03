@@ -5,6 +5,15 @@ class StoriesController < ApplicationController
 
     def show
         @story = Story.find(params[:id])
+
+        @complete_story = []
+
+        @story.slices.each do |slice|
+            @complete_story << slice.body
+        end
+
+        @complete_story = @complete_story.join(" ")
+
     end
 
     def new
