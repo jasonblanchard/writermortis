@@ -6,7 +6,11 @@ class Story < ActiveRecord::Base
   belongs_to :user
   has_many :slices
 
+  def slices_left
+      total_slices - slices.length
+  end
+
   def done?
-      slices.length == total_slices
+      total_slices == 0
   end
 end
