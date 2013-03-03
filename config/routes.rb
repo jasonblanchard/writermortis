@@ -6,7 +6,9 @@ Exquisitecorpse::Application.routes.draw do
 
     root :to => 'stories#index'
 
-    resources :stories
+    resources :stories do
+        resources :slices
+    end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

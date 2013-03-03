@@ -1,0 +1,9 @@
+<%= form_for([@story, @story.slices.build]) do |f| %>
+    <div>
+        <%= f.label :body %>
+    </div>
+    <div>
+        <%= f.text_area :body %>
+    </div>
+    <%= f.submit %>
+<% end %>
