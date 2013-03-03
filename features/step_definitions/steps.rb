@@ -30,3 +30,15 @@ When /^I am logged in$/ do
     fill_in "user_password", :with => "testpass"
     click_button "Sign in"
 end
+
+Given /^the following stories exist:$/ do |table|
+    table.hashes.each do |story|
+        Story.create( :title => story["Title"], :max_sentences => story["Max Sentences"], :total_slices => story["Total Slices"])
+    end
+end
+
+Given /^I am on the "(.*?)" story page$/ do |title|
+    story = Story.find_by_title(title)
+    id = story.id
+    visit "/stories/#{id}"
+end
