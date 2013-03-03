@@ -1,6 +1,9 @@
 <h3><%= @story.title %></h3>
-Slices left: <%= @story.slices_left %>
 
+<div class='span1 slices-left'>
+    <span class='slices-left'><%= @story.slices_left %><br /></span>
+    more until the story is done.
+</div>
 
 <% if @story.done? %>
     <div>The story is done:</div>

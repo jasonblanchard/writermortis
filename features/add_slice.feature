@@ -21,7 +21,7 @@ Feature: Add slice to a story
         And I push "Add to the Story"
         Then I should see "Call of Cthulhu"
         And I should see "The ship was nearing the island. The men were scared, but wouldn't show it."
-        And I should see "Slices left: 2"
+        And I should see "2 more until the story is done."
 
     Scenario:
         Given I am logged out
