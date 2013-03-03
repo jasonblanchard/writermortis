@@ -1,1 +1,7 @@
 <h3><%= @story.title %></h3>
+<% if @story.slices.last %>
+    <%= div_for @story.slices.last do |slice| %>
+        <%= slice.body %>
+    <% end %>
+<% end %>
+<%= render 'slices/form' %>

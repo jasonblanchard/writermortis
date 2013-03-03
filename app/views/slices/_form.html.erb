@@ -3,7 +3,7 @@
         <%= f.label :body %>
     </div>
     <div>
-        <%= f.text_area :body %>
+        <%= f.text_area :body, :rows => 3, :class => 'span4' %>
     </div>
-    <%= f.submit %>
+    <%= f.submit :class => 'btn' %>
 <% end %>

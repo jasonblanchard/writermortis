@@ -10,6 +10,9 @@ Exquisitecorpse::Application.routes.draw do
         resources :slices
     end
 
+    # Hack-around for some weird bug that's looking for this named route
+    match 'stories/:id/slices' => 'stories#index', :as => :story_slice_index
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
