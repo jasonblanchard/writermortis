@@ -1,9 +1,6 @@
 <%= form_for([@story, @story.slices.build]) do |f| %>
     <div>
-        <%= f.label :body %>
-    </div>
-    <div>
         <%= f.text_area :body, :rows => 3, :class => 'span8' %>
     </div>
-    <%= f.submit :class => 'btn' %>
+    <%= f.submit "Add to the Story", :class => 'btn' %>
 <% end %>
