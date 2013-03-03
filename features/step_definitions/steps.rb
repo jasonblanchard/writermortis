@@ -33,7 +33,7 @@ end
 
 Given /^the following stories exist:$/ do |table|
     table.hashes.each do |story|
-        Story.create( :title => story["Title"], :max_sentences => story["Max Sentences"], :total_slices => story["Total Slices"])
+        story = Story.create( :title => story["Title"], :max_sentences => story["Max Sentences"], :total_slices => story["Total Slices"])
     end
 end
 
@@ -41,4 +41,20 @@ Given /^I am on the "(.*?)" story page$/ do |title|
     story = Story.find_by_title(title)
     id = story.id
     visit "/stories/#{id}"
+end
+
+Given /^I am logged out$/ do
+    page.driver.submit :delete, "/accounts/logout", {}
+end
+
+Given /^"(.*?)" is logged in$/ do |email|
+    visit '/accounts/login'
+    fill_in 'user_email', :with => email
+    fill_in 'user_password', :with => 'testpass'
+    click_button "Sign in"
+end
+
+Then /^debug$/ do
+    @story = Story.find_by_title("Call of Cthulhu")
+    breakpoint
 end

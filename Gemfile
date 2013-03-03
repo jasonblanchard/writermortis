@@ -7,6 +7,7 @@ gem 'rails', '3.2.7'
 
 group :test, :development do 
     gem 'sqlite3'
+    gem 'debugger'
 end
 
 group :test do
