@@ -10,6 +10,8 @@ class SlicesController < ApplicationController
 
         if @slice.save
             redirect_to @story
+        else
+            redirect_to @story, :alert => "Didn't post"
         end
     end
 end
