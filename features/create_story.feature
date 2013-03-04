@@ -5,8 +5,8 @@ Feature: Create a Story
 
     Background:
         Given the following users exist:
-            | email             | password  |
-            | test@example.com  | testpass  |
+            | email             | password  | name  |
+            | test@example.com  | testpass  | test  |
         Given I am logged in
 
     Scenario:

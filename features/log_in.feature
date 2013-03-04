@@ -5,8 +5,8 @@ Feature: Log in to the site
 
     Background: Users in the database
         Given the following users exist:
-            | email             | password  |
-            | test@example.com  | testpass  |
+            | email             | password  | name  |
+            | test@example.com  | testpass  | test  |
 
     Scenario:
         When I am on the homepage
