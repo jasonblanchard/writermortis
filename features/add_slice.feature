@@ -49,3 +49,11 @@ Feature: Add slice to a story
         And I fill in "slice_body" with ""
         And I push "Add to the Story"
         Then I should see "Body can't be blank"
+
+    Scenario:
+        Given I am logged in
+        Given I am on the "Call of Cthulhu" story page
+        And I fill in "slice_body" with "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor."
+        And I push "Add to the Story"
+        Then I should see "Body must have less than 5 sentences."
+        And I should see "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor."

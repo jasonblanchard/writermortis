@@ -12,6 +12,7 @@ class SlicesController < ApplicationController
             redirect_to @story
         else
             flash[:errors] = @slice.errors.full_messages
+            flash[:body] = @slice.body
             redirect_to @story
         end
     end

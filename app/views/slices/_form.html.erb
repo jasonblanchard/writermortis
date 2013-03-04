@@ -19,7 +19,7 @@
         </div>
     <% end %>
     <div>
-        <%= f.text_area :body, :rows => 3, :class => 'span8' %>
+        <%= f.text_area :body, :rows => 3, :class => 'span8', :value => flash[:body] %>
     </div>
     <%= f.submit "Add to the Story", :class => 'btn' %>
 <% end %>
