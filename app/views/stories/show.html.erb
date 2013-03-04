@@ -1,16 +1,17 @@
 <h3><%= @story.title %></h3>
 
-<div class='span1 slices-left'>
-    <span class='slices-left'><%= @story.slices_left %><br /></span>
-    more until the story is done.
-</div>
-
 <% if @story.done? %>
     <div>The story is done:</div>
     <%= @complete_story %>
 <% end %>
 
 <% unless @story.done? %>
+
+    <div class='span1 slices-left'>
+        <span class='slices-left'><%= @story.slices_left %><br /></span>
+        more until the story is done.
+    </div>
+
     <div class="row-fluid">
         <div class="last-story-slice span9 offset2">
             <% if @story.slices.last %>
