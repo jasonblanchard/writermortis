@@ -14,4 +14,5 @@ describe Story do
 
         slices_left.should equal(story.total_slices)
     end
+
 end
