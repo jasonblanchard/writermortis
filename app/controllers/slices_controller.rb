@@ -11,7 +11,8 @@ class SlicesController < ApplicationController
         if @slice.save
             redirect_to @story
         else
-            redirect_to @story, :alert => "Didn't post"
+            flash[:errors] = @slice.errors.full_messages
+            redirect_to @story
         end
     end
 end

@@ -1,4 +1,23 @@
 <%= form_for([@story, @story.slices.build]) do |f| %>
+    <% if flash[:errors] %>
+        <ul>
+        <% flash[:errors].each do |error| %>
+            <li><%= error %>
+        <% end %>
+        </ul>
+    <% end %>
+
+    <% @story.slices.each do |slice| %>
+        <div>
+            <% if slice.errors.any? %>
+                <ul>
+                <% slice.errors.full_messages.each do |error| %>
+                    <li><%= error %></li>
+                <% end %>
+            </ul>
+        <% end %>
+        </div>
+    <% end %>
     <div>
         <%= f.text_area :body, :rows => 3, :class => 'span8' %>
     </div>
