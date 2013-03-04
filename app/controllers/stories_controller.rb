@@ -14,6 +14,8 @@ class StoriesController < ApplicationController
 
         @complete_story = @complete_story.join(" ")
 
+        @contributors = @story.users.uniq
+
     end
 
     def new
