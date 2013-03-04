@@ -41,6 +41,8 @@ Feature: Add slice to a story
         And I push "Add to the Story"
         Then I should see "The story is done!"
         And I should see "The men were going to an island of unicorns. And they were very excited. They loved unicorns."
+        And I should see "test"
+        And I should see "Sally"
         And I should not see "Add to the Story"
 
     Scenario:
