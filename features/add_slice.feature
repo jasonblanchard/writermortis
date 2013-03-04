@@ -42,3 +42,10 @@ Feature: Add slice to a story
         Then I should see "The story is done:"
         And I should see "The men were going to an island of unicorns. And they were very excited. They loved unicorns."
         And I should not see "Add to the Story"
+
+    Scenario:
+        Given I am logged in
+        Given I am on the "Call of Cthulhu" story page
+        And I fill in "slice_body" with ""
+        And I push "Add to the Story"
+        Then I should see "Body can't be blank"
