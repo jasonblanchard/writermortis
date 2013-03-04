@@ -44,6 +44,7 @@ Feature: Add slice to a story
         And I should see "test"
         And I should see "Sally"
         And I should not see "Add to the Story"
+        And I should see "Create a New Story!"
 
     Scenario:
         Given I am logged in
