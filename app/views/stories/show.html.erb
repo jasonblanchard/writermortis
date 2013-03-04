@@ -1,31 +1,22 @@
-<h3><%= @story.title %></h3>
+<div class='row-fluid'>
+    <% if @story.done? %>
+        <%= render 'finished_story' %>
+    <% end %>
 
-<% if @story.done? %>
-    <div>The story is done:</div>
-    <%= @complete_story %>
-<% end %>
+    <% unless @story.done? %>
+        <%= render 'unfinished_story' %>
+    <% end %>
 
-<% unless @story.done? %>
-
-    <div class='span1 slices-left'>
-        <span class='slices-left'><%= @story.slices_left %><br /></span>
-        more until the story is done.
+    <div class="contributors span2">
+        <h3>Contributors</h3>
     </div>
 
-    <div class="row-fluid">
-        <div class="last-story-slice span9 offset2">
-            <% if @story.slices.last %>
-                <%= div_for @story.slices.last do |slice| %>
-                    <%= slice.body %>
-                <% end %>
-            <% else %>
-                This story needs a beginning...
-            <% end %>
-        </div>
-    </div>
-    <div class="row-fluid">
+</div>
+
+<div class="row-fluid">
+    <% unless @story.done? %>
         <div class="slice-form-wrapper span9 offset2">
             <%= render 'slices/form' %>
         </div>
-    </div>
-<% end %>
+    <% end %>
+</div>
