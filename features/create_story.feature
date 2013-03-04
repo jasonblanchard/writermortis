@@ -15,3 +15,5 @@ Feature: Create a Story
         And I fill in "story_title" with "Hello World Story"
         And I push "Create Story"
         Then I should see "Hello World Story"
+        And I should see "Each contribution must be less than 5 sentences."
+        And I should see "The story will be finished when there are 7 contributions."
