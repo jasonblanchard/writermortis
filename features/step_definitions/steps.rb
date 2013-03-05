@@ -57,3 +57,7 @@ end
 Then /^I should not see "(.*?)"$/ do |arg1|
     page.should have_no_content(arg1)
 end
+
+Then /^I should not see the "(.*?)" form$/ do |form|
+    have_no_css?("form.#{form}")
+end

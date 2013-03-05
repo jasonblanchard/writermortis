@@ -17,7 +17,7 @@
 </div>
 
 <div class="row-fluid">
-    <% unless @story.done? %>
+    <% if !@story.done? %>
         <% if @story.can_have_slice_by(current_user) %>
             <div class="slice-form-wrapper span9 offset2">
                 <%= render 'slices/form' %>

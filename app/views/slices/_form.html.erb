@@ -1,25 +1,31 @@
-<%= form_for([@story, @story.slices.build]) do |f| %>
-    <% if flash[:errors] %>
-        <ul>
-        <% flash[:errors].each do |error| %>
-            <li><%= error %>
-        <% end %>
-        </ul>
-    <% end %>
-
-    <% @story.slices.each do |slice| %>
-        <div>
-            <% if slice.errors.any? %>
-                <ul>
-                <% slice.errors.full_messages.each do |error| %>
-                    <li><%= error %></li>
-                <% end %>
+<% if user_signed_in? %>
+    <%= form_for([@story, @story.slices.build]) do |f| %>
+        <% if flash[:errors] %>
+            <ul>
+            <% flash[:errors].each do |error| %>
+                <li><%= error %>
+            <% end %>
             </ul>
         <% end %>
+
+        <% @story.slices.each do |slice| %>
+            <div>
+                <% if slice.errors.any? %>
+                    <ul>
+                    <% slice.errors.full_messages.each do |error| %>
+                        <li><%= error %></li>
+                    <% end %>
+                </ul>
+            <% end %>
+            </div>
+        <% end %>
+        <div>
+            <%= f.text_area :body, :rows => 3, :class => 'span8', :value => flash[:body] %>
         </div>
+        <%= f.submit "Add to the Story", :class => 'btn' %>
     <% end %>
-    <div>
-        <%= f.text_area :body, :rows => 3, :class => 'span8', :value => flash[:body] %>
+<% else %>
+    <div class='sign-in-to-post'>
+        <%= link_to "Sign in", new_user_session_path, :class => 'btn btn-success' %> to add to the story
     </div>
-    <%= f.submit "Add to the Story", :class => 'btn' %>
 <% end %>
