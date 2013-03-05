@@ -14,7 +14,7 @@ Feature: Add slice to a story
             | sally@example.com | testpass  | Sally     |
 
 
-    Scenario:
+    Scenario: Add a single slice
         Given I am logged in
         Given I am on the "Call of Cthulhu" story page
         And I fill in "slice_body" with "The ship was nearing the island. The men were scared, but wouldn't show it."
@@ -23,7 +23,7 @@ Feature: Add slice to a story
         And I should see "The ship was nearing the island. The men were scared, but wouldn't show it."
         And I should see "2 more until the story is done."
 
-    Scenario:
+    Scenario: Complete a story and see contributors
         Given I am logged out
         Given "sally@example.com" is logged in
         Given I am on the "Call of Cthulhu" story page
@@ -46,17 +46,25 @@ Feature: Add slice to a story
         And I should not see "Add to the Story"
         And I should see "Create a New Story!"
 
-    Scenario:
+    Scenario: Cannot add a blank slice
         Given I am logged in
         Given I am on the "Call of Cthulhu" story page
         And I fill in "slice_body" with ""
         And I push "Add to the Story"
         Then I should see "Body can't be blank"
 
-    Scenario:
+    Scenario: Cannot add a slice with too many sentences
         Given I am logged in
         Given I am on the "Call of Cthulhu" story page
         And I fill in "slice_body" with "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor."
         And I push "Add to the Story"
         Then I should see "Body must have less than 5 sentences."
         And I should see "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nulla vitae elit libero, a pharetra augue. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor."
+
+    Scenario: Can't add two slices in a row
+        Given I am logged in
+        Given I am on the "Call of Cthulhu" story page
+        And I fill in "slice_body" with "It was a dark and stormy night"
+        And I push "Add to the Story"
+        Then I should not see "Add to the Story"
+        Then I should see "Ask a friend to continue the story!"

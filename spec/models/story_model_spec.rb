@@ -14,5 +14,9 @@ describe Story do
 
         slices_left.should equal(story.total_slices)
     end
+    describe "won't let a user add two slices in a row" do
+        it "won't let user add two slices in a row"
+        it "will let a different user add a slice"
+    end
 
 end
