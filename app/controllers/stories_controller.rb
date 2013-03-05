@@ -1,4 +1,7 @@
 class StoriesController < ApplicationController
+
+    before_filter :authenticate_user!, :only => [:new, :create]
+
     def index
         @stories = Story.all
     end
