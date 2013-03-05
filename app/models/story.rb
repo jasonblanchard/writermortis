@@ -15,4 +15,12 @@ class Story < ActiveRecord::Base
       slices_left <= 0
   end
 
+  def can_have_slice_by(user)
+      if user.id == users.last.id
+          false
+      else
+          true
+      end
+  end
+
 end
