@@ -7,10 +7,10 @@
     <div class='span4'>
         <h2>Create</h3>
         <% if user_signed_in? %>
-            <%= link_to "New Story", new_story_path, :class=> 'btn' %></div>
-    <% else %>
-        <%= link_to "Sign In", new_user_session_path, :class => 'btn btn-success' %> to create a story
-    <% end %>
+            <%= link_to "New Story", new_story_path, :class=> 'btn' %>
+        <% else %>
+            <%= link_to "Sign In", new_user_session_path, :class => 'btn btn-success' %> to create a story
+        <% end %>
     </div>
     <div class='span4 home-center'>
         <h2>Contribute</h2>
