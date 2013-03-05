@@ -2,6 +2,7 @@ class Story < ActiveRecord::Base
   attr_accessible :title, :max_sentences, :total_slices
 
   validates :title, :presence => true
+  validate :can_have_slice_by(self.user)
 
   belongs_to :user
   has_many :slices
