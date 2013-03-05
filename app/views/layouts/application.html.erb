@@ -8,18 +8,20 @@
 </head>
 <body>
     <div class='page-wrapper container-fluid'>
-        <% if !notice.nil? %>
-            <div class='alert alert-success'>
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <%= notice %>
-            </div>
-        <% end %>
-        <% if !alert.nil? %>
-            <div class='alert'>
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <%= alert %>
-            </div>
-        <% end %>
+        <div class="top-alerts">
+            <% if !notice.nil? %>
+                <div class='alert alert-success'>
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <%= notice %>
+                </div>
+            <% end %>
+            <% if !alert.nil? %>
+                <div class='alert'>
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <%= alert %>
+                </div>
+            <% end %>
+        </div>
 
         <div class='header'>
             <div class="row-fluid">
