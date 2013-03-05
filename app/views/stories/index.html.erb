@@ -1,12 +1,11 @@
 <div class='row-fluid'>
     <div class='welcome-top-section span12'>
-        cool picture
     </div>
 </div>
 
 <div class='row-fluid'>
     <div class='span4'>
-        <h2>Add a Story</h3>
+        <h2>Create</h3>
         <% if user_signed_in? %>
             <%= link_to "New Story", new_story_path, :class=> 'btn' %></div>
     <% else %>
@@ -14,12 +13,12 @@
     <% end %>
     </div>
     <div class='span4 home-center'>
-        <h2>Contribute to a story</h2>
+        <h2>Contribute</h2>
         <%= div_for @stories do |story| %>
             <%= link_to story.title, story %>
         <% end %>
     </div>
     <div class='span4'>
-        <h2>Read Stories</h2>
+        <h2>Read</h2>
     </div>
 </div>
