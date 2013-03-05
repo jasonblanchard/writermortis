@@ -67,4 +67,4 @@ Feature: Add slice to a story
         And I fill in "slice_body" with "It was a dark and stormy night"
         And I push "Add to the Story"
         Then I should not see "Add to the Story"
-        Then I should see "Ask a friend to continue the story!"
+        Then I should see "Now ask a friend to continue the story!"

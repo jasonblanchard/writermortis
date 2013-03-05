@@ -18,9 +18,15 @@
 
 <div class="row-fluid">
     <% unless @story.done? %>
-        <div class="slice-form-wrapper span9 offset2">
-            <%= render 'slices/form' %>
-        </div>
+        <% if @story.can_have_slice_by(current_user) %>
+            <div class="slice-form-wrapper span9 offset2">
+                <%= render 'slices/form' %>
+            </div>
+        <% else %>
+            <div class="slice-form-wrapper span9 offset2">
+                Now ask a friend to continue the story!
+            </div>
+        <% end %>
     <% end %>
 </div>
 

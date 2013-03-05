@@ -15,7 +15,8 @@ describe Story do
 
         slices_left.should equal(story.total_slices)
     end
-    describe "won't let a user add two slices in a row" do
+
+    describe "will control who can post" do
         it "by knowing if a user has posted last" do
             user = FactoryGirl.create(:user)
             story = FactoryGirl.create(:story)
@@ -24,26 +25,11 @@ describe Story do
             story.can_have_slice_by(user).should be_false
         end
 
-        it "will not submit a second slice from same user" do
+        it "but let people make a first post" do
             user = FactoryGirl.create(:user)
             story = FactoryGirl.create(:story)
-            slice1 = FactoryGirl.create(:slice)
-            slice2 = FactoryGirl.create(:slice)
 
-            errors = slice2.errors.any?
-            errors.should be_true
-
-        end
-
-        it "will submit slice from second user" do
-            user1 = FactoryGirl.create(:user)
-            user2 = FactoryGirl.create(:user, :id => 2, :email => 'sally@example.com')
-            story = FactoryGirl.create(:story)
-            slice1 = FactoryGirl.create(:slice)
-            slice2 = FactoryGirl.create(:slice, :user_id => 2)
-
-            errors = slice2.errors.any?
-            errors.should be_false
+            story.can_have_slice_by(user).should be_true
         end
 
     end

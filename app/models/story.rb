@@ -2,7 +2,6 @@ class Story < ActiveRecord::Base
   attr_accessible :title, :max_sentences, :total_slices
 
   validates :title, :presence => true
-  validate :can_have_slice_by(self.user)
 
   belongs_to :user
   has_many :slices
@@ -17,7 +16,7 @@ class Story < ActiveRecord::Base
   end
 
   def can_have_slice_by(user)
-      if user.id == users.last.id
+      if  users.last and user.id == users.last.id
           false
       else
           true
