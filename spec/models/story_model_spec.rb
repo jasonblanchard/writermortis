@@ -17,18 +17,18 @@ describe Story do
     end
     describe "won't let a user add two slices in a row" do
         it "by knowing if a user has posted last" do
-            user = FactoryGirl.create(:user, :id => 1)
-            story = FactoryGirl.create(:story, :id => 1)
-            slice = FactoryGirl.create(:slice, :story_id => 1, :user_id => 1)
+            user = FactoryGirl.create(:user)
+            story = FactoryGirl.create(:story)
+            slice = FactoryGirl.create(:slice)
 
-            story.can_have_slice_by(user).should by_false
+            story.can_have_slice_by(user).should be_false
         end
 
         it "will not submit a second slice from same user" do
-            user = FactoryGirl.create(:user, :id => 1)
-            story = FactoryGirl.create(:story, :id => 1, :user_id => 1)
-            slice1 = FactoryGirl.create(:slice, :user_id => 1, :story_id => 1)
-            slice2 = FactoryGirl.create(:slice, :user_id => 1, :story_id => 1)
+            user = FactoryGirl.create(:user)
+            story = FactoryGirl.create(:story)
+            slice1 = FactoryGirl.create(:slice)
+            slice2 = FactoryGirl.create(:slice)
 
             errors = slice2.errors.any?
             errors.should be_true
@@ -36,11 +36,11 @@ describe Story do
         end
 
         it "will submit slice from second user" do
-            user1 = FactoryGirl.create(:user, :id => 1)
+            user1 = FactoryGirl.create(:user)
             user2 = FactoryGirl.create(:user, :id => 2, :email => 'sally@example.com')
-            story = FactoryGirl.create(:story, :id => 1, :user_id => 1)
-            slice1 = FactoryGirl.create(:slice, :user_id => 1, :story_id => 1)
-            slice2 = FactoryGirl.create(:slice, :user_id => 2, :story_id => 1)
+            story = FactoryGirl.create(:story)
+            slice1 = FactoryGirl.create(:slice)
+            slice2 = FactoryGirl.create(:slice, :user_id => 2)
 
             errors = slice2.errors.any?
             errors.should be_false
