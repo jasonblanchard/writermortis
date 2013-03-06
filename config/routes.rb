@@ -4,7 +4,7 @@ Exquisitecorpse::Application.routes.draw do
 
     #devise_for :users
 
-    root :to => 'stories#index'
+    root :to => 'home#home'
 
     resources :stories do
         resources :slices
