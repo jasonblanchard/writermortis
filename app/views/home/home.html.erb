@@ -22,11 +22,14 @@
     </div>
     <div class='span4 frontpage-section center-section'>
         <h2>Contribute</h2>
-        <%= div_for @stories do |story| %>
+        <%= div_for @incomplete_stories do |story| %>
             <%= link_to story.title, story %>
         <% end %>
     </div>
     <div class='span4 frontpage-section'>
         <h2>Read</h2>
+        <%= div_for @complete_stories do |story| %>
+            <%= link_to story.title, story %>
+        <% end %>
     </div>
 </div>
