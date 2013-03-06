@@ -6,6 +6,8 @@ class Slice < ActiveRecord::Base
   validates :body, :presence => true
   validate :does_not_excede_max_sentences
 
+  after_save :update_story_status
+
   def does_not_excede_max_sentences
       if !body.blank?
         sentences = body.split(/((?<=[a-z0-9)][.?!])|(?<=[a-z0-9][.?!]"))\s+(?="?[A-Z])/)
@@ -17,5 +19,13 @@ class Slice < ActiveRecord::Base
         end
       end
   end
+
+  private
+
+    def update_story_status
+        if self.story.slices.length >= self.story.total_slices
+            self.story.update_attributes(:complete => true)
+        end 
+    end 
 
 end
