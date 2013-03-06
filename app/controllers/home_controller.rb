@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
     def home
-        @stories = Story.all
+        @stories = Story.find(:all, :limit => 5)
     end 
 
 end
