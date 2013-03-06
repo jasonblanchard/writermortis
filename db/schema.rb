@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130306175319) do
+ActiveRecord::Schema.define(:version => 20130306182304) do
 
   create_table "slice", :force => true do |t|
     t.text     "body"
@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(:version => 20130306175319) do
 
   create_table "stories", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
     t.integer  "user_id"
     t.integer  "max_sentences", :default => 5
     t.integer  "total_slices",  :default => 7
-    t.boolean  "complete"
+    t.boolean  "complete",      :default => false
   end
 
   create_table "users", :force => true do |t|
