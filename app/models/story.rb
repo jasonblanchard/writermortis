@@ -1,5 +1,5 @@
 class Story < ActiveRecord::Base
-  attr_accessible :title, :max_sentences, :total_slices
+  attr_accessible :title, :max_sentences, :total_slices, :complete
 
   validates :title, :presence => true
 
@@ -12,7 +12,7 @@ class Story < ActiveRecord::Base
   end
 
   def done?
-      slices_left <= 0
+      complete
   end
 
   def can_have_slice_by(user)
