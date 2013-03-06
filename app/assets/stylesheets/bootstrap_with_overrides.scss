@@ -1,6 +1,8 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
+$text-on-dark: rgb(218, 216, 216);
+
 h1, h2, h3 {
     font-weight: normal;
     font-family: 'Georgia,' 'Times New Roman,' 'Serif';
@@ -10,6 +12,16 @@ body {
     font-family: 'Rosarivo', 'serif';
 }
 
-.btn {
-    font-family: 'Helvetica Neue','sans serif';
+a, a:hover, a:visited {
+    color: rgb(214, 46, 46);
 }
+
+.btn, a.btn {
+    font-family: 'Helvetica Neue','sans serif';
+    color: white;
+}
+
+.light-link a {
+    color: $text-on-dark
+}
+

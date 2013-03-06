@@ -1,4 +1,5 @@
 $light-margin-color: rgb(221, 221, 221);
+$text-on-dark: rgb(218, 216, 216);
 
 .title {
 
@@ -22,6 +23,17 @@ $light-margin-color: rgb(221, 221, 221);
     background-image: url('A_Galvanised_Corpse.jpg');
     background-repeat:no-repeat;
     background-position: -100px -140px;
+}
+
+.welcome-top-section .info {
+    background: rgba(0, 0, 0, 0.54);
+    height: 100%;
+    padding: 5px;
+    color: $text-on-dark;
+}
+
+.test-right {
+    text-align: right;
 }
 
 .frontpage-section {
