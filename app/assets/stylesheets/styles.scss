@@ -1,3 +1,5 @@
+$light-margin-color: rgb(221, 221, 221);
+
 .title {
 
     h1 {
@@ -20,6 +22,18 @@
     background-image: url('A_Galvanised_Corpse.jpg');
     background-repeat:no-repeat;
     background-position: -100px -140px;
+}
+
+.frontpage-section {
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.center-section {
+    @extend .frontpage-section;
+    border-left: 1px solid $light-margin-color;
+    border-right: 1px solid $light-margin-color;
 }
 
 .new_slice {
