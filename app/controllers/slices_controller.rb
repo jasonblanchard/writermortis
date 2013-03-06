@@ -12,7 +12,11 @@ class SlicesController < ApplicationController
         @slice.user_id = current_user.id
 
         if @slice.save
-            redirect_to @story
+            if @story.done?
+                redirect_to @story, :notice => "The story is done!"
+            else
+                redirect_to @story
+            end
         else
             flash[:errors] = @slice.errors.full_messages
             flash[:body] = @slice.body

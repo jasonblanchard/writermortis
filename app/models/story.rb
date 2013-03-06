@@ -12,7 +12,7 @@ class Story < ActiveRecord::Base
   end
 
   def done?
-      complete
+      complete || done_by_count?
   end
 
   def can_have_slice_by(user)
@@ -20,6 +20,16 @@ class Story < ActiveRecord::Base
           false
       else
           true
+      end
+  end
+
+  private
+
+  def done_by_count?
+      if slices.length >= total_slices
+          true
+      else
+          false
       end
   end
 
