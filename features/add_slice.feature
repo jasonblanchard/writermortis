@@ -4,15 +4,14 @@ Feature: Add slice to a story
     I want to add a slice to a story
 
     Background:
-        Given the following stories exist:
-            | Title             | Max Sentences | Total Slices  |
-            | Call of Cthulhu   | 5             | 3             |
-
         Given the following users exist:
             | email             | password  | name      |
             | test@example.com  | testpass  | test      |
             | sally@example.com | testpass  | Sally     |
 
+        Given the following stories exist:
+            | Title             | Max Sentences | Total Slices  | author    |
+            | Call of Cthulhu   | 5             | 3             | test      |
 
     Scenario: Add a single slice
         Given I am logged in

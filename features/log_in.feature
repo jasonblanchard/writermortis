@@ -9,9 +9,9 @@ Feature: Log in to the site
             | test@example.com  | testpass  | test  |
 
         Given the following stories exist:
-            | Title             | Max Sentences | Total Slices  |
-            | Into the wild     | 5             | 3             |
-            | A Completed Story | 5             | 2             |
+            | Title             | Max Sentences | Total Slices  | author    |
+            | Into the wild     | 5             | 3             | test      |
+            | A Completed Story | 5             | 2             | test      |
 
 
     Scenario: User can log in

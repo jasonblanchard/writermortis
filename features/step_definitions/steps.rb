@@ -33,7 +33,8 @@ end
 
 Given /^the following stories exist:$/ do |table|
     table.hashes.each do |story|
-        story = Story.create( :title => story["Title"], :max_sentences => story["Max Sentences"], :total_slices => story["Total Slices"])
+        author_id = User.find_by_name(story['author']).id
+        story = Story.create( :title => story["Title"], :max_sentences => story["Max Sentences"], :total_slices => story["Total Slices"], :user_id => author_id)
     end
 end
 
