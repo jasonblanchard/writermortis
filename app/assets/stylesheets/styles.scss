@@ -22,6 +22,13 @@ $text-on-dark: rgb(218, 216, 216);
     background: rgb(213, 217, 226);
     background-image: url('A_Galvanised_Corpse.jpg');
     background-repeat:no-repeat;
+    background-size: 100%
+}
+
+@media (max-width: 1243px) {
+    .welcome-top-section {
+        background-size: auto;
+    }
 }
 
 .welcome-top-section .info {
