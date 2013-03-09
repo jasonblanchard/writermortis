@@ -1,9 +1,9 @@
-<div class='span1 slices-left'>
+<div class='span2 slices-left'>
     <span class='slices-left'><%= @story.slices_left %><br /></span>
 more until the story is done.
 </div>
 
-<div class="last-story-slice span6 offset2">
+<div class="last-story-slice span8">
     <h3><%= @story.title %></h3>
     <% if @story.slices.last %>
         <%= div_for @story.slices.last do |slice| %>
