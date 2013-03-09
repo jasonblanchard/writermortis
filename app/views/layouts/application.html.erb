@@ -28,8 +28,8 @@
             <div class="row-fluid">
                 <div class='navbar'>
                     <div class='navbar-inner'>
-                        <ul class='nav'>
-                            <%= link_to "Exquisite Corpse", :root, :class => 'brand' %>
+                        <%= link_to "Exquisite Corpse", :root, :class => 'brand' %>
+                        <ul class='nav pull-right'>
                             <% if user_signed_in? %>
                                 <li><%= link_to "Edit My Account", edit_user_registration_path %></li>
                                 <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
