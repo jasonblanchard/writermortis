@@ -9,14 +9,6 @@ $text-on-dark: rgb(218, 216, 216);
     }
 }
 
-.user-menu {
-
-    ul li {
-        display: inline;
-        margin-right: 10px;
-    }
-}
-
 .welcome-top-section {
     height: 380px;
     background: rgb(213, 217, 226);
@@ -66,6 +58,7 @@ span.slices-left {
     margin: 0 auto;
     width: 50%;
     margin-bottom: 20px;
+    margin-top: 30px;
 }
 
 .top-alerts {
