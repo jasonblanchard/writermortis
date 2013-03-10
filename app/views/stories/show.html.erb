@@ -8,10 +8,7 @@
     <% end %>
 
     <div class="contributors span2">
-        <h3>Contributors</h3>
-        <%= div_for @contributors do |user| %>
-            <%= user.name %>
-        <% end %>
+        <%= render 'contributors' %>
     </div>
 
 </div>
