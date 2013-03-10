@@ -9,26 +9,25 @@
 </head>
 <body>
     <div class='page-wrapper container-fluid'>
-        <div class="top-alerts">
-            <% if !notice.nil? %>
-                <div class='alert alert-success'>
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <%= notice %>
-                </div>
-            <% end %>
-            <% if !alert.nil? %>
-                <div class='alert'>
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <%= alert %>
-                </div>
-            <% end %>
-        </div>
-
         <div class='header'>
             <div class="row-fluid">
                 <div class='navbar'>
                     <div class='navbar-inner'>
                         <%= link_to "Exquisite Corpse", :root, :class => 'brand' %>
+
+                        <% if !notice.nil? %>
+                            <div class='alert alert-success span6 offset1'>
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <%= notice %>
+                            </div>
+                        <% end %>
+                        <% if !alert.nil? %>
+                            <div class='alert span6 offset1'>
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <%= alert %>
+                            </div>
+                        <% end %>
+
                         <ul class='nav pull-right'>
                             <% if user_signed_in? %>
                                 <li><%= link_to "Edit My Account", edit_user_registration_path %></li>
