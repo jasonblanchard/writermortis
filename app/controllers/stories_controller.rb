@@ -21,6 +21,10 @@ class StoriesController < ApplicationController
         @contributors.push(@story.user)
         @contributors.uniq!
 
+        if @story.done?
+            render :template => 'stories/finished_story_show'
+        end
+
     end
 
     def new
