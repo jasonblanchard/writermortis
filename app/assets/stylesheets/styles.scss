@@ -52,13 +52,17 @@ $text-on-dark: rgb(218, 216, 216);
     margin-top: 10px;
 }
 
+.slices-left {
+    text-align: center;
+}
+
 span.slices-left {
     font-size: 3em;
     display: block;
     margin: 0 auto;
     width: 50%;
     margin-bottom: 20px;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .top-alerts {
