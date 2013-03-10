@@ -41,11 +41,9 @@
 </div>
 
 <div class="row-fluid">
-    <div class="span2">
-        <h3>Rules:</h3>
-        <ul>
-            <li>Each contribution must be less than <%= @story.max_sentences %> sentences.</li>
-            <li>The story will be finished when there are <%= @story.total_slices %> contributions.</li>
-        </ul>
+    <div class="span2 muted">
+        <h3>Rules</h3>
+        <p>Each contribution must be less than <%= @story.max_sentences %> sentences.</p>
+        <p>The story will be finished when there are <%= @story.total_slices %> contributions.</p>
     </div>
 </div>
