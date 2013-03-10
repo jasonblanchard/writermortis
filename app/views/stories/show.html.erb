@@ -1,5 +1,20 @@
 <div class='row-fluid'>
-    <%= render 'unfinished_story' %>
+
+    <div class='span2 slices-left'>
+        <span class='slices-left'><%= @story.slices_left %><br /></span>
+    more until the story is done.
+    </div>
+
+    <div class="last-story-slice span8">
+        <h3><%= @story.title %></h3>
+        <% if @story.slices.last %>
+            <%= div_for @story.slices.last do |slice| %>
+                <%= slice.body %>
+            <% end %>
+        <% else %>
+            This story needs a beginning...
+        <% end %>
+    </div>
 
     <div class="contributors span2">
         <%= render 'contributors' %>
