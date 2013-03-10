@@ -17,7 +17,7 @@ $text-on-dark: rgb(218, 216, 216);
     background-size: 100%
 }
 
-@media (max-width: 1243px) {
+@media (max-width: 1149px) {
     .welcome-top-section {
         background-size: auto;
     }
@@ -37,12 +37,6 @@ $text-on-dark: rgb(218, 216, 216);
 .frontpage-section {
     padding: 5px;
     text-align: center;
-}
-
-.center-section {
-    @extend .frontpage-section;
-    border-left: 1px solid $light-margin-color;
-    border-right: 1px solid $light-margin-color;
 }
 
 .new_slice {
