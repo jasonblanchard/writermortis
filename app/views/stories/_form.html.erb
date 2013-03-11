@@ -1,4 +1,4 @@
-<%= form_for @story do |f| %>
+<%= form_for @story, :html => {:class => 'form-horizontal'} do |f| %>
     <div class='error-messages'>
         <% if @story.errors.any? %>
             <div class="alert alert-error">
@@ -9,24 +9,29 @@
         <% end %>
     </div>
 
-    <div>
-        <%= f.label :title %>
-    </div>
-    <div>
-        <%= f.text_field :title %>
-    </div>
-    <div>
-        <%= f.label :max_sentences %>
-    </div>
-    <div>
-        <%= f.text_field :max_sentences %>
-    </div>
-    <div>
-        <%= f.label :total_slices %>
-    </div>
-    <div>
-        <%= f.text_field :total_slices %>
+    <div class='control-group'>
+        <%= f.label :title, :class => 'control-label' %>
+        <div class='controls'>
+            <%= f.text_field :title %>
+        </div>
     </div>
 
-    <%= f.submit :class => 'btn' %>
+    <div class='control-group'>
+        <%= f.label :max_sentences, :class => 'control-label' %>
+        <div class='controls'>
+            <%= f.text_field :max_sentences %>
+        </div>
+    </div>
+
+    <div class='control-group'>
+        <%= f.label :total_slices, :class => 'control-label' %>
+        <div class='controls'>
+            <%= f.text_field :total_slices %>
+        </div>
+    </div>
+
+    <div class='control-group'>
+        <%= f.submit :class => 'btn' %>
+    </div>
+
 <% end %>
