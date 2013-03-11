@@ -21,6 +21,15 @@ a.btn.btn-success {
     color: white;
 }
 
+#error_explanation {
+
+    h2 {
+        font-size: 1.3em;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+}
+
 .light-link a {
     color: $text-on-dark
 }
