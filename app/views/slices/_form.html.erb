@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
     <%= form_for([@story, @story.slices.build]) do |f| %>
         <% if flash[:errors] %>
-            <div id='error_explanation' class='span8 alert alert-error'>
+            <div id='error_explanation' class='alert alert-error'>
                 <% flash[:errors].each do |error| %>
                     <p><%= error %></p>
                 <% end %>
