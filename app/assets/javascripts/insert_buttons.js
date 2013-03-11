@@ -4,17 +4,19 @@ $(document).ready( function() {
     var newVal = '';
 
     $('button.continue-line').click( function() {
+        newVal = inputBox.val().replace(/^\s+|\s+$/g, '');
+        inputBox.focus().val("").val(newVal);
     });
 
     $('button.new-line').click( function() {
-        newVal = '\n' + inputBox.val()
-        inputBox.val('\n' + inputBox.val());
+        var val = inputBox.val().replace(/^\s+|\s+$/g, '');
+        newVal = '\n' + val;
         inputBox.focus().val("").val(newVal);
     });
 
     $('button.new-paragraph').click( function() {
-        newVal = '\n\n' + inputBox.val();
-        inputBox.val('\n\n' + inputBox.val());
+        var val = inputBox.val().replace(/^\s+|\s+$/g, '');
+        newVal = '\n\n' + val;
         inputBox.focus().val("").val(newVal);
     });
 
