@@ -24,22 +24,24 @@
 
 <div class="row-fluid">
 
-    <% if user_signed_in? %>
-        <% if @story.can_have_slice_by(current_user) %>
+    <div class='span8 offset2'>
+        <% if user_signed_in? %>
+            <% if @story.can_have_slice_by(current_user) %>
+                <div class="slice-form-wrapper span9 offset2">
+                    <%= render 'slices/form' %>
+                </div>
+
+            <% else %>
+                <div class="slice-form-wrapper span9 offset2">
+                    Now ask a friend to continue the story!
+                </div>
+            <% end %>
+        <% else %>
             <div class="slice-form-wrapper span9 offset2">
                 <%= render 'slices/form' %>
             </div>
-
-        <% else %>
-            <div class="slice-form-wrapper span9 offset2">
-                Now ask a friend to continue the story!
-            </div>
-        <% end %>
-    <% else %>
-        <div class="slice-form-wrapper span9 offset2">
-            <%= render 'slices/form' %>
-        </div>
-    <% end%>
+        <% end%>
+    </div>
 
 </div>
 
