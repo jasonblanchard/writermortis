@@ -1,54 +1,61 @@
 <div class='row-fluid'>
+    <div class='row-fluid'>
+        <div class='span2 left-sidebar'>
 
-    <div class='span2 slices-left well'>
-        <span class='slices-left'><%= @story.slices_left %><br /></span>
-    more until the story is done.
-    </div>
+        <div class='slices-left well'>
+            <span class='slices-left'><%= @story.slices_left %><br /></span>
+            more until the story is done.
+        </div>
 
-    <div class="last-story-slice span8">
-        <h3><%= @story.title %></h3>
-        <% if @story.slices.last %>
-            <%= div_for @story.slices.last do |slice| %>
-                <%= slice.body %>
+
+        <div class="muted">
+            <h3>Rules</h3>
+            <p>Each contribution must be less than <%= @story.max_sentences %> sentences.</p>
+            <p>The story will be finished when there are <%= @story.total_slices %> contributions.</p>
+        </div>
+
+    </div> <!-- End left-sidebar -->
+
+    <div class='main-page-content span8'>
+
+        <div class="last-story-slice">
+            <h3><%= @story.title %></h3>
+            <% if @story.slices.last %>
+                <%= div_for @story.slices.last do |slice| %>
+                    <%= slice.body %>
+                <% end %>
+            <% else %>
+                This story needs a beginning...
             <% end %>
-        <% else %>
-            This story needs a beginning...
-        <% end %>
-    </div>
+        </div>
 
-    <div class="contributors span2">
-        <%= render 'contributors' %>
-    </div>
 
-</div>
+        <div class='slice-form'>
+            <% if user_signed_in? %>
+                <% if @story.can_have_slice_by(current_user) %>
+                    <div class="slice-form-wrapper span9 offset2">
+                        <%= render 'slices/form' %>
+                    </div>
 
-<div class="row-fluid">
-
-    <div class='span8 offset2'>
-        <% if user_signed_in? %>
-            <% if @story.can_have_slice_by(current_user) %>
+                <% else %>
+                    <div class="slice-form-wrapper span9 offset2">
+                        Now ask a friend to continue the story!
+                    </div>
+                <% end %>
+            <% else %>
                 <div class="slice-form-wrapper span9 offset2">
                     <%= render 'slices/form' %>
                 </div>
+            <% end%>
+        </div>
 
-            <% else %>
-                <div class="slice-form-wrapper span9 offset2">
-                    Now ask a friend to continue the story!
-                </div>
-            <% end %>
-        <% else %>
-            <div class="slice-form-wrapper span9 offset2">
-                <%= render 'slices/form' %>
-            </div>
-        <% end%>
+    </div> <!-- End main page content -->
+
+
+    <div class='right-sidebar span2'>
+        <div class="contributors">
+            <%= render 'contributors' %>
+        </div>
     </div>
 
-</div>
-
-<div class="row-fluid">
-    <div class="span2 muted">
-        <h3>Rules</h3>
-        <p>Each contribution must be less than <%= @story.max_sentences %> sentences.</p>
-        <p>The story will be finished when there are <%= @story.total_slices %> contributions.</p>
-    </div>
-</div>
+</div> <!-- End row fluid -->
