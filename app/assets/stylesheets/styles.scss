@@ -40,7 +40,6 @@ $text-on-dark: rgb(218, 216, 216);
 }
 
 .new_slice {
-    width: 80%;
     display: block;
     margin: 0 auto;
     margin-top: 10px;
@@ -63,4 +62,8 @@ span.slices-left {
     margin: 0 auto;
     margin-top: 5px;
     width: 30%
+}
+
+.insert-buttons {
+    margin-top: 20px;
 }

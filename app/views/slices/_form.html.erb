@@ -1,11 +1,11 @@
 <% if user_signed_in? %>
     <%= form_for([@story, @story.slices.build]) do |f| %>
         <% if flash[:errors] %>
-            <ul>
-            <% flash[:errors].each do |error| %>
-                <li><%= error %>
-            <% end %>
-            </ul>
+            <div id='error_explanation' class='span8 alert alert-error'>
+                <% flash[:errors].each do |error| %>
+                    <p><%= error %></p>
+                <% end %>
+            </div>
         <% end %>
 
         <% @story.slices.each do |slice| %>
@@ -22,10 +22,15 @@
         <div>
             <%= f.text_area :body, :rows => 3, :class => 'span8', :value => flash[:body] %>
         </div>
-        <%= f.submit "Add to the Story", :class => 'btn' %>
+        <%= f.submit "Add to the Story", :class => 'btn btn-success' %>
     <% end %>
 <% else %>
     <div class='sign-in-to-post'>
         <%= link_to "Sign in", new_user_session_path, :class => 'btn btn-success' %> to add to the story
     </div>
 <% end %>
+<div class="btn-group insert-buttons">
+  <button class="btn continue-line">Continue Line</button>
+  <button class="btn new-line">New Line</button>
+  <button class="btn new-paragraph">New Paragraph</button>
+</div>
