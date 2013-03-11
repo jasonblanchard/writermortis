@@ -1,7 +1,7 @@
 <%= form_for @story do |f| %>
     <div class='error-messages'>
         <% if @story.errors.any? %>
-            <div class="alert">
+            <div class="alert alert-error">
                 <% @story.errors.full_messages.each do |error| %>
                     <p><%= error %></p>
                 <% end %>
