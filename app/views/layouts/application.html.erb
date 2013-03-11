@@ -19,20 +19,6 @@
                 </a>
 
                 <%= link_to "Exquisite Corpse", :root, :class => 'brand' %>
-
-                <% if !notice.nil? %>
-                    <div class='alert alert-success span4 offset1'>
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <%= notice %>
-                    </div>
-                <% end %>
-                <% if !alert.nil? %>
-                    <div class='alert span4 offset1'>
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <%= alert %>
-                    </div>
-                <% end %>
-
                 <div class="nav-collapse collapse">
                     <ul class='nav pull-right'>
                         <% if user_signed_in? %>
@@ -47,6 +33,22 @@
             </div>
         </div>
     </div>
+
+    <div class='top-errors'>
+        <% if !notice.nil? %>
+            <div class='alert alert-success span9 offset2'>
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <%= notice %>
+            </div>
+        <% end %>
+        <% if !alert.nil? %>
+            <div class='alert span9 offset2'>
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <%= alert %>
+            </div>
+        <% end %>
+    </div>
+
 
     <%= yield :home_header_image %>
 
