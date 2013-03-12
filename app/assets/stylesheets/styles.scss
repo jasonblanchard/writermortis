@@ -1,5 +1,10 @@
 $light-margin-color: rgb(221, 221, 221);
 $text-on-dark: rgb(218, 216, 216);
+$background: rgb(236, 236, 235);
+
+body {
+    background: $background;
+}
 
 .title {
 
