@@ -11,8 +11,3 @@
  *= require_self
  *= require_tree .
  */
-
-.page-wrapper {
-    width: 90%;
-    margin: 0 auto;
-}
