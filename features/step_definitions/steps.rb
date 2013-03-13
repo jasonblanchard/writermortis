@@ -65,5 +65,5 @@ end
 
 Then /^the HTML should show that "(.*?)" wrote "(.*?)"$/ do |name, slice|
     id = User.find_by_name(name).id
-    page.body.include?("<span id=\"#{id}\">#{slice}</span>").should be_true
+    page.body.include?("<span id=\"user_#{id}\">#{slice}</span>").should be_true
 end
