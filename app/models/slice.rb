@@ -10,8 +10,8 @@ class Slice < ActiveRecord::Base
 
   def does_not_excede_max_sentences
       if !body.blank?
-        sentences = body.split(/((?<=[a-z0-9)][.?!])|(?<=[a-z0-9][.?!]"))\s+(?="?[A-Z])/)
-        sentences.delete("")
+        sentences = body.split(/([^\r\n.!?]+([.!?]+|$))/)
+        sentences.keep_if { |i| i =~ /\w/ }
         max_sentences = self.story.max_sentences
 
         if sentences.length > self.story.max_sentences
