@@ -38,4 +38,19 @@ class StoriesController < ApplicationController
         end
     end
 
+    def edit
+        @story = current_user.stories.find(params[:id])
+    end
+
+    def update
+        @story = current_user.stories.find(params[:id])
+        @story.update_attributes(params[:story])
+
+        if @story.save
+            redirect_to @story
+        else
+            render :edit
+        end
+    end
+
 end
