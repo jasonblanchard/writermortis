@@ -33,6 +33,16 @@ class Story < ActiveRecord::Base
       end
   end
 
+  def self.complete_story(story)
+      complete_story = []
+
+      story.slices.each do |slice|
+          complete_story << slice.body
+      end
+
+      complete_story.join(" ")
+  end
+
   private
 
   def done_by_count?

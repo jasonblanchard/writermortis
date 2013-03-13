@@ -53,4 +53,15 @@ describe Story do
             story.contributors[0].id.should equal(1)
         end
     end
+
+    describe "can display a complete story" do
+        it "returns text for a completed story" do
+            user = FactoryGirl.create(:user)
+            story = FactoryGirl.create(:story)
+            slice1 = FactoryGirl.create(:slice, :user_id => 2, :body => "Once upon a time there was a pig.")
+            slice2 = FactoryGirl.create(:slice, :user_id => 2, :body => "And he was eaten by a coyote.")
+
+            expect(Story.complete_story(story)).to eq("Once upon a time there was a pig. And he was eaten by a coyote.")
+        end
+    end
 end

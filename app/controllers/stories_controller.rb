@@ -15,11 +15,10 @@ class StoriesController < ApplicationController
             @complete_story << slice.body
         end
 
-        @complete_story = @complete_story.join(" ")
-
         @contributors = @story.contributors
 
         if @story.done?
+            @complete_story = Story.complete_story(@story)
             render :template => 'stories/finished_story_show'
         end
 
