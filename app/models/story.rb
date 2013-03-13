@@ -27,11 +27,9 @@ class Story < ActiveRecord::Base
 
   def contributors
       if self.slices.empty?
-          self.user
+          [] << self.user
       else
-          contributors = self.users.uniq
-          contributors.unshift(self.user)
-          contributors.uniq! || contributors
+          self.users.unshift(self.user).uniq
       end
   end
 
