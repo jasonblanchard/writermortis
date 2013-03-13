@@ -34,4 +34,14 @@ describe Story do
 
     end
 
+    it "can return users who contributed to the story" do
+        user = FactoryGirl.create(:user)
+        user1 = FactoryGirl.create(:user, :email => 'sally@example.com', :id => 2)
+        story = FactoryGirl.create(:story)
+        slice = FactoryGirl.create(:slice, :user_id => 2)
+
+        story.contributors.length.should equal(2)
+        story.contributors[0].id.should equal(1)
+    end
+
 end

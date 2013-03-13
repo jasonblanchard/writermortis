@@ -25,6 +25,16 @@ class Story < ActiveRecord::Base
       end
   end
 
+  def contributors
+      if self.slices.empty?
+          self.user
+      else
+          contributors = self.users.uniq
+          contributors.unshift(self.user)
+          contributors.uniq! || contributors
+      end
+  end
+
   private
 
   def done_by_count?
