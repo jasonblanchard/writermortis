@@ -26,7 +26,7 @@ Feature: Create a Story
 
     Scenario: Editing a story
         Given I am on the "Call of Cthulhu" story page
-        And I click "Edit story"
-        And I fill "story_title" with "Shmall of Cthulhu"
+        And I click "[Edit Story]"
+        And I fill in "story_title" with "Shmall of Cthulhu"
         And I push "Update Story"
         Then I should see "Shmall of Cthulhu"
