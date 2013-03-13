@@ -7,9 +7,14 @@ Feature: Create a Story
         Given the following users exist:
             | email             | password  | name  |
             | test@example.com  | testpass  | test  |
+
         Given I am logged in
 
-    Scenario:
+        Given the following stories exist:
+            | Title             | Max Sentences | Total Slices  | author    |
+            | Call of Cthulhu   | 5             | 3             | test      |
+
+    Scenario: Create a story
         Given I am on the homepage
         And I click "New Story"
         And I fill in "story_title" with "Hello World Story"
@@ -18,3 +23,10 @@ Feature: Create a Story
         And I should see "Each contribution must be less than 5 sentences."
         And I should see "The story will be finished when there are 7 contributions."
         And I should see "test"
+
+    Scenario: Editing a story
+        Given I am on the "Call of Cthulhu" story page
+        And I click "Edit story"
+        And I fill in the "story_title" with "Shmall of Cthulhu"
+        And I push "Update Story"
+        Then I should see "Shmall of Cthulhu"
