@@ -2,7 +2,7 @@
 
     <div class='span9'>
         <h3><%= @story.title %></h3>
-        <%= simple_format @complete_story %>
+        <%= simple_format(sanitize(@complete_story, :tags => %w(span), :attributes => %w(id)), {}, :sanitize => false) %>
         <%= link_to "Create a New Story!", new_story_path, :class=> 'btn' %>
     </div>
 

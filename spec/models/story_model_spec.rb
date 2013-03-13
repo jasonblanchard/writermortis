@@ -58,10 +58,10 @@ describe Story do
         it "returns text for a completed story" do
             user = FactoryGirl.create(:user)
             story = FactoryGirl.create(:story)
-            slice1 = FactoryGirl.create(:slice, :user_id => 2, :body => "Once upon a time there was a pig.")
-            slice2 = FactoryGirl.create(:slice, :user_id => 2, :body => "And he was eaten by a coyote.")
+            slice1 = FactoryGirl.create(:slice, :user_id => 1, :body => "Once upon a time there was a pig.")
+            slice2 = FactoryGirl.create(:slice, :user_id => 1, :body => "And he was eaten by a coyote.")
 
-            expect(Story.complete_story(story)).to eq("Once upon a time there was a pig. And he was eaten by a coyote.")
+            expect(Story.complete_story(story)).to eq("<span id='1'>Once upon a time there was a pig.</span> <span id='1'>And he was eaten by a coyote.</span>")
         end
     end
 end
