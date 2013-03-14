@@ -16,11 +16,11 @@
     <div class='span4 frontpage-section'>
         <h2>My Stories</h2>
         <%= link_to "New Story", new_story_path, :class=> 'btn' %>
-        <h3>Unfinished</h3>
+        <h3 class='muted'>Unfinished</h3>
         <%= div_for @my_unfinished_stories do |story| %>
             <%= link_to story.title, story %>
         <% end %>
-        <h3>Finished</h3>
+        <h3 class='muted'>Finished</h3>
         <%= div_for @my_finished_stories do |story| %>
             <%= link_to story.title, story %>
         <% end %>
