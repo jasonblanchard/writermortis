@@ -39,3 +39,8 @@ Feature: Log in to the site
         Given I am on the "Into the wild" story page
         Then I should not see the "new_slice" form
         And I should see "Sign in to add to the story"
+
+    Scenario: Logged in user sees their stories
+        Given I am logged in
+        Then the page should list "Into the wild" as "Unfinished"
+        And the page should list "A Completed Story" as "Finished"

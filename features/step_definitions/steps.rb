@@ -72,3 +72,10 @@ end
 Given /^show page$/ do
     puts page.body
 end
+
+Then /^the page should list "(.*?)" as "(.*?)"$/ do |story, state|
+    id = Story.find_by_title(story).id
+
+    html = "<h3 class=\"muted\">#{state}</h3><div class=\"story\" id=\"story_#{id}\"><a href=\"/stories/#{id}\">#{story}</a></div>"
+
+end
