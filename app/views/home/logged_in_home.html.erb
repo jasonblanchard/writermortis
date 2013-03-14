@@ -1,0 +1,20 @@
+<div class='row-fluid'>
+    <div class='span4 frontpage-section'>
+        <h2>Unfinished Stories</h2>
+        <%= div_for @incomplete_stories do |story| %>
+            <%= link_to story.title, story %>
+        <% end %>
+    </div>
+
+    <div class='span4 frontpage-section'>
+        <h2>Finished Stories</h2>
+        <%= div_for @complete_stories do |story| %>
+            <%= link_to story.title, story %>
+        <% end %>
+    </div>
+
+    <div class='span4 frontpage-section'>
+        <h2>My Stories</h2>
+    </div>
+
+</div>
