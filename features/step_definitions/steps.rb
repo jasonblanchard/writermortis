@@ -53,6 +53,7 @@ Given /^"(.*?)" is logged in$/ do |email|
     fill_in 'user_email', :with => email
     fill_in 'user_password', :with => 'testpass'
     click_button "Sign in"
+    page.should have_content("Signed in successfully.")
 end
 
 Then /^I should not see "(.*?)"$/ do |arg1|
@@ -66,4 +67,8 @@ end
 Then /^the HTML should show that "(.*?)" wrote "(.*?)"$/ do |name, slice|
     id = User.find_by_name(name).id
     page.body.include?("<span id=\"user_#{id}\">#{slice}</span>").should be_true
+end
+
+Given /^show page$/ do
+    puts page.body
 end
