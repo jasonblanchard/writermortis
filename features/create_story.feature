@@ -7,6 +7,7 @@ Feature: Create a Story
         Given the following users exist:
             | email             | password  | name  |
             | test@example.com  | testpass  | test  |
+            | sally@example.com | testpass  | sally |
 
         Given I am logged in
 
@@ -30,3 +31,9 @@ Feature: Create a Story
         And I fill in "story_title" with "Shmall of Cthulhu"
         And I push "Update Story"
         Then I should see "Shmall of Cthulhu"
+
+    Scenario: Users cannot edit others users stories
+        Given I am logged out
+        And "sally@example.com" is logged in
+        And I am on the "Call of Cthulhu" story page
+        Then I should not see "[Edit Story]"
