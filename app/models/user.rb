@@ -13,4 +13,25 @@ class User < ActiveRecord::Base
 
   has_many :stories
   has_many :slices
+
+  def has_contributed_to_finished
+      stories = []
+
+      self.slices.order('created_at DESC').each do |slice|
+          stories << slice.story if slice.story.done?
+      end
+
+      stories.uniq
+  end
+
+  def has_contributed_to_unfinished
+      stories = []
+
+      self.slices.order('created_at DESC').each do |slice|
+          stories << slice.story if !slice.story.done?
+      end
+
+      stories.uniq
+  end
+
 end
