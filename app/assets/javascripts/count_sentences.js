@@ -2,6 +2,8 @@ $(document).ready(function() {
 
     if ($('textarea#slice_body').length > 0) {
 
+        $('.rules').hide();
+
         $('input[name="commit"]').after('<div class="sentence-update pull-right">This story allows ' + maxSentences + ' sentences. You have written 0 sentences</div>');
 
         updateSentenceCount();
