@@ -54,13 +54,19 @@ body {
     text-align: center;
 }
 
-span.slices-left {
-    font-size: 3em;
-    display: block;
+.slice-count {
     margin: 0 auto;
-    width: 50%;
     margin-bottom: 20px;
     margin-top: 20px;
+}
+
+span.large {
+    font-size: 3em;
+    margin-right: 5px;
+}
+
+span.medium {
+    font-size: 2em;
 }
 
 .top-alerts {

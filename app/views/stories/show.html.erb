@@ -7,7 +7,7 @@
         <div class='span2 left-sidebar'>
 
         <div class='slices-left well'>
-            <span class='slices-left'><%= @story.slices_left %><br /></span>
+            <div class='slice-count'><span class='large'><%= @story.slices_left %></span><span class="muted"> out of</span><span class='muted medium'> <%= @story.total_slices %></span></div>
             more until the story is done.
         </div>
 
