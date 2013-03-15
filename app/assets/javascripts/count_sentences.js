@@ -2,35 +2,33 @@ $(document).ready(function() {
 
     if ($('textarea#slice_body').length > 0) {
 
-        $('input[name="commit"]').after('<div class="sentence-update pull-right">You have written 0 sentences</div>');
-        
+        $('input[name="commit"]').after('<div class="sentence-update pull-right">This story allows ' + maxSentences + ' sentences. You have written 0 sentences</div>');
+
+        updateSentenceCount();
+
         $('textarea#slice_body').bind('input propertychange', function() {
-            $('.sentence-update').html('');
-
-            var sentences = $('textarea#slice_body').val().match(/([^\r\n.!?]+([.!?]+|$))/gim);
-
-            if (sentences != null) {
-                $('.sentence-update').html('You have written ' + sentences.length + ' sentences.');
-            } else {
-                $('.sentence-update').html('You have written 0 sentences');
-            }
-
+            updateSentenceCount();
         });
 
         $('#slice_body').keyup(function() {
-
-            $('.sentence-update').html('');
-
-            var sentences = $('textarea#slice_body').val().match(/([^\r\n.!?]+([.!?]+|$))/gim);
-
-            if (sentences != null) {
-                $('.sentence-update').html('You have written ' + sentences.length + ' sentences.');
-            } else {
-                $('.sentence-update').html('You have written 0 sentences');
-            }
-
+            updateSentenceCount();
         });
 
     }
 
 });
+
+function updateSentenceCount() {
+
+    $('.sentence-update').html('');
+
+    var sentences = $('textarea#slice_body').val().match(/([^\r\n.!?]+([.!?]+|$))/gim);
+
+    if (sentences != null) {
+        $('.sentence-update').html('This story allows ' + maxSentences + ' sentences. You have written ' + sentences.length + ' sentences.');
+    } else {
+        $('.sentence-update').html('This story allows ' + maxSentences + ' sentences. You have written 0 sentences');
+    }
+
+}
+
