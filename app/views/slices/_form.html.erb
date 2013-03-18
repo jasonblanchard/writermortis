@@ -29,8 +29,11 @@
         <%= link_to "Sign in", new_user_session_path, :class => 'btn btn-success' %> to add to the story
     </div>
 <% end %>
-<div class="btn-group insert-buttons">
-  <button class="btn continue-line">Continue Line</button>
-  <button class="btn new-line">New Line</button>
-  <button class="btn new-paragraph">New Paragraph</button>
-</div>
+<% if user_signed_in? %>
+    <div class="btn-group insert-buttons">
+      <button class="btn continue-line">Continue Line</button>
+      <button class="btn new-line">New Line</button>
+      <button class="btn new-paragraph">New Paragraph</button>
+  </div>
+<% end %>
+
