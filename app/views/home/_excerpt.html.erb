@@ -1,0 +1,4 @@
+<%= div_for @excerpt, :class => 'align-left' do |story| %>
+    <h3><%= link_to story.title, story_path(story) %></h3>
+    <i><%= render 'stories/finished_story.html.erb', :@story => story %></i>
+<% end %>
