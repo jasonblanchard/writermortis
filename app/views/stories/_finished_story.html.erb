@@ -1,0 +1,3 @@
+<h3><%= @story.title %></h3>
+<%= simple_format(sanitize(@complete_story, :tags => %w(span), :attributes => %w(id)), {}, :sanitize => false) %>
+

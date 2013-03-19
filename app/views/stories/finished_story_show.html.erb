@@ -1,8 +1,7 @@
 <div class='row-fluid'>
 
     <div class='span9'>
-        <h3><%= @story.title %></h3>
-        <%= simple_format(sanitize(@complete_story, :tags => %w(span), :attributes => %w(id)), {}, :sanitize => false) %>
+        <%= render 'finished_story' %>
         <%= link_to "Create a New Story!", new_story_path, :class=> 'btn' %>
     </div>
 
