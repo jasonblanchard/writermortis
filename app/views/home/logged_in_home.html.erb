@@ -1,15 +1,16 @@
 <div class='row-fluid'>
 
-    <div class='span4 frontpage-section'>
+    <div class='span3 frontpage-section'>
         <div class='well'>
             <h1>My Stories</h1>
+            <hr />
             <%= link_to 'New Story', new_story_path, :class => 'btn' %>
             <%= render 'my_unfinished' %>
             <%= render 'my_finished' %>
         </div>
     </div>
 
-    <div class='span8'>
+    <div class='span9'>
         <div class='span6 frontpage-section'>
             <%= render 'explore_unfinished' %>
         </div>
