@@ -32,8 +32,7 @@
     <div class='span8 frontpage-section'>
         <h2>A fresh story:</h2>
         <%= div_for @excerpt, :class => 'align-left' do |story| %>
-            <i><h3><%= story.title %></h3></i>
-            <i><p class='align-left'><%= simple_format Story.complete_story(story) %></p></i>
+            <%= render 'stories/finished_story.html.erb', :@story => story %>
         <% end %>
         <hr >
         <div class=''>
