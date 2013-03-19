@@ -2,8 +2,8 @@ class Story < ActiveRecord::Base
   attr_accessible :title, :max_sentences, :total_slices, :complete, :user_id
 
   validates :title, :presence => true
-  validates :total_slices, :presence => true, :numericality => { :only_integer => true }
-  validates :max_sentences, :presence => true, :numericality => { :only_integer => true }
+  validates :total_slices, :presence => true, :numericality => { :only_integer => true, :less_than => 99 }
+  validates :max_sentences, :presence => true, :numericality => { :only_integer => true, :less_than => 15 }
 
   belongs_to :user
   has_many :slices, :dependent => :destroy
