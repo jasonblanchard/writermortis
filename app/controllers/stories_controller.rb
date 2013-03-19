@@ -12,7 +12,6 @@ class StoriesController < ApplicationController
         @contributors = @story.contributors
 
         if @story.done?
-            @complete_story = Story.complete_story(@story)
             render :template => 'stories/finished_story_show'
         end
 
