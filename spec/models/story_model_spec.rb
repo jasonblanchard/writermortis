@@ -37,7 +37,7 @@ describe Story do
     describe "can return users who contributed to the story" do
         it "returns contributors when story has slices" do
             user = FactoryGirl.create(:user)
-            user1 = FactoryGirl.create(:user, :email => 'sally@example.com', :id => 2)
+            user1 = FactoryGirl.create(:user, :email => 'sally@example.com', :id => 2, :name => "Sallywally")
             story = FactoryGirl.create(:story)
             slice = FactoryGirl.create(:slice, :user_id => 2)
 
