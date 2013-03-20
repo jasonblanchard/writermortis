@@ -19,20 +19,20 @@
         <div>
             <h2>Start a Story</h2>
             <p><%= link_to "Sign In", new_user_session_path, :class => 'btn btn-success' %> to create a story.</p> 
-            <p class='align-left'>Decide how many contributions there will be and how many sentences each person can write.</p>
+            <p class='align-left'>Decide how many contributions there will be and how many sentences each writer can add.</p>
         </div>
         <div class='large-top-margin'>
             <h2>Contribute</h2>
-            <p class='align-left'>View the last piece of a story and add to it.</p>
+            <p class='align-left'>View the last piece of a story and write a new part.</p>
             <%= render 'story_list', :stories => @incomplete_stories %>
         </div>
     </div>
     <div class='span8 frontpage-section'>
-        <h2>A fresh story:</h2>
+        <h2>Admire a Finished Story</h2>
         <%= render 'excerpt' %>
-        <hr >
+        <hr />
         <div class='span6 offset2'>
-            <h3>More Complete Stories</h3>
+            <h3>More Finished Stories</h3>
             <%= render 'story_list', :stories => @complete_stories %>
         </div>
     </div>
