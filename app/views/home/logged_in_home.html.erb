@@ -13,20 +13,20 @@
     </div>
 
     <div class='span9'>
-        <div class='span6 frontpage-section'>
-            <h3>Unfinished Stories</h3>
+        <div class='span12'>
+            <h2>Recent Stories</h2>
+        </div>
+
+        <div class='span5 frontpage-section'>
+            <h3>Unfinished</h3>
             <%= render 'story_list', :stories => @incomplete_stories %>
         </div>
 
-        <div class='span6 frontpage-section'>
-            <h3>Finished Stories</h3>
+        <div class='span5 frontpage-section'>
+            <h3>Finished</h3>
             <%= render 'story_list', :stories => @complete_stories %>
         </div>
 
-        <div class='span12'>
-            <h3>Inspiration</h3>
-            <%= render 'excerpt' %>
-        </div>
 
     </div>
 

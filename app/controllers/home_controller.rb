@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
 
     def home
-        @complete_stories = Story.where("complete = ?", true).limit(10).order('created_at DESC')
-        @incomplete_stories = Story.where("complete = ?", false).limit(10).order('created_at DESC')
+        @complete_stories = Story.where("complete = ?", true).limit(5).order('created_at DESC')
+        @incomplete_stories = Story.where("complete = ?", false).limit(5).order('created_at DESC')
         @excerpt = Story.all(:conditions => {:complete => true}).last
 
         if user_signed_in?

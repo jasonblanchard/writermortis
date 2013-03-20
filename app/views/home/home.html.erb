@@ -4,7 +4,7 @@
             <div class='span4 info'>
                 <br />
                 <br />
-                Writer Mortis is designed for writing collaborative <span class='medium'>exquisite corpses</span>, Frankensteinian stories patched together from the skulls of multiple creators.
+                <p>Writer Mortis is designed for writing collaborative <span class='medium'>exquisite corpses</span>, Frankensteinian stories patched together from the minds of multiple creators.</p>
                 <br />
                 <br />
                 <div class='text-right light-link'><a href="http://en.wikipedia.org/wiki/Exquisite_corpse" target='_blank'>More on Wikipedia</a></span>
@@ -18,9 +18,11 @@
     <div class='span4 frontpage-section'>
         <div>
             <h2>Start a Story</h2>
-            <p><%= link_to "Sign In", new_user_session_path, :class => 'btn btn-success' %> to create a story.</p> 
+            <p class='align-left'><%= link_to "Sign In", new_user_session_path, :class => 'btn btn-success' %> to create a story.</p> 
             <p class='align-left'>Decide how many contributions there will be and how many sentences each writer can add.</p>
         </div>
+        <hr />
+
         <div class='large-top-margin'>
             <h2>Contribute</h2>
             <p class='align-left'>View the last piece of a story and write a new part.</p>
@@ -30,10 +32,5 @@
     <div class='span8 frontpage-section'>
         <h2>Admire a Finished Story</h2>
         <%= render 'excerpt' %>
-        <hr />
-        <div class='span6 offset2'>
-            <h3>More Finished Stories</h3>
-            <%= render 'story_list', :stories => @complete_stories %>
-        </div>
     </div>
 </div>
