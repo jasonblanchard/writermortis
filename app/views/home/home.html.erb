@@ -24,9 +24,7 @@
         <div>
             <h2>Contribute</h2>
             <p class='align-left'>View the last piece of a story and add to it.</p>
-            <%= div_for @incomplete_stories do |story| %>
-                <%= link_to story.title, story %>
-            <% end %>
+            <%= render 'story_list', :stories => @incomplete_stories %>
         </div>
     </div>
     <div class='span8 frontpage-section'>
@@ -35,9 +33,7 @@
         <hr >
         <div class=''>
             <h3>More Complete Stories</h3>
-            <%= div_for @complete_stories do |story| %>
-                <%= link_to story.title, story %>
-            <% end %>
+            <%= render 'story_list', :stories => @complete_stories %>
         </div>
     </div>
 </div>
