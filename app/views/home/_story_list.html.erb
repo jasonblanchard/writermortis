@@ -1,3 +1,6 @@
-<%= div_for stories do |story| %>
-    <%= link_to story.title, story %>
-<% end %>
+<ul class="nav nav-pills nav-stacked story-list">
+  <% stories.each do |story| %>
+      <li><%= link_to story.title, story, :class => 'story-title' %></li>
+  <% end %>
+</ul>
+
