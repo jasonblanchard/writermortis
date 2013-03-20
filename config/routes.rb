@@ -6,6 +6,8 @@ Exquisitecorpse::Application.routes.draw do
 
     root :to => 'home#home'
 
+    match 'about' => 'home#about', :as => 'about'
+
     resources :stories do
         resources :slices
     end
