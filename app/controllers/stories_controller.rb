@@ -40,10 +40,17 @@ class StoriesController < ApplicationController
         @story.update_attributes(params[:story])
 
         if @story.save
-            redirect_to @story
+            redirect_to @story, :notice => "Story successfully updated."
         else
             render :edit
         end
+    end
+
+    def destroy
+        @story = current_user.stories.find(params[:id])
+        @story.destroy
+
+        redirect_to :root, :notice => "Story deleted."
     end
 
 end
