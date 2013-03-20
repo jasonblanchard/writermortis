@@ -5,18 +5,22 @@
             <h2>My Stories</h2>
             <hr />
             <%= link_to 'New Story', new_story_path, :class => 'btn' %>
-            <%= render 'my_unfinished' %>
-            <%= render 'my_finished' %>
+            <h3>Unfinished</h3>
+            <%= render 'story_list', :stories => @my_unfinished_stories %>
+            <h3>Finished</h3>
+            <%= render 'story_list', :stories => @my_finished_stories %>
         </div>
     </div>
 
     <div class='span9'>
         <div class='span6 frontpage-section'>
-            <%= render 'explore_unfinished' %>
+            <h3>Unfinished Stories</h3>
+            <%= render 'story_list', :stories => @incomplete_stories %>
         </div>
 
         <div class='span6 frontpage-section'>
-            <%= render 'explore_finished' %>
+            <h3>Finished Stories</h3>
+            <%= render 'story_list', :stories => @complete_stories %>
         </div>
 
         <div class='span12'>
