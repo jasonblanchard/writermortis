@@ -17,16 +17,19 @@
             <h2>Recent Stories</h2>
         </div>
 
+        <div class='span12'>
+            <%= render 'excerpt' %>
+        </div>
+
         <div class='span5 frontpage-section'>
             <h3>Unfinished</h3>
             <%= render 'story_list', :stories => @incomplete_stories %>
         </div>
 
-        <div class='span5 frontpage-section'>
+        <div class='span6 frontpage-section'>
             <h3>Finished</h3>
             <%= render 'story_list', :stories => @complete_stories %>
         </div>
-
 
     </div>
 
