@@ -37,3 +37,12 @@ Feature: Create a Story
         And "sally@example.com" is logged in
         And I am on the "Call of Cthulhu" story page
         Then I should not see "[Edit Story]"
+
+    Scenario: User deletes story
+        Given I am logged out
+        Given I am on the homepage
+        Given I am logged in
+        And I am on the "Call of Cthulhu" story page
+        And I click "[Edit Story]"
+        And I click "Delete Story"
+        Then I should see "Story deleted."
