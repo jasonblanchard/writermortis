@@ -1,2 +1,1 @@
-<%= simple_format(sanitize(Story.complete_story(@story), :tags => %w(span), :attributes => %w(id class)), {}, :sanitize => false) %>
-
+<%= simple_format(sanitize(Story.complete_story(@story), :tags => %w(div), :attributes => %w(id class)), {}, :sanitize => false) %>
