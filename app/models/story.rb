@@ -43,7 +43,7 @@ class Story < ActiveRecord::Base
       complete_story.join(" ")
   end
 
-  def self.story_list(state, limit=nil)
+  def self.list(state, limit=nil)
       if limit.nil?
           Story.where("complete = ?", state).order('created_at DESC')
       else

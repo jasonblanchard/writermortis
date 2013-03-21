@@ -73,7 +73,7 @@ describe Story do
                 FactoryGirl.create(:story, :complete => true)
             end
 
-            Story.story_list(true).length.should eq(5)
+            Story.list(true).length.should eq(5)
         end
 
         it "by returning a list of all incomplete stories" do
@@ -81,7 +81,7 @@ describe Story do
                 FactoryGirl.create(:story)
             end
 
-            Story.story_list(false).length.should eq(5)
+            Story.list(false).length.should eq(5)
         end
 
         it "by returning a limited list of complete stories" do
@@ -89,7 +89,7 @@ describe Story do
                 FactoryGirl.create(:story, :complete => true)
             end
 
-            Story.story_list(true,3).length.should eq(3)
+            Story.list(true,3).length.should eq(3)
         end
     end
 end
