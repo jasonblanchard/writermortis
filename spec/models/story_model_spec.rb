@@ -9,11 +9,18 @@ describe Story do
         status.should be_false
     end
 
-    it "knows how many more slices if needs" do
-        story = Story.create!(:title => "Test Story")
-        slices_left = story.slices_left
+    describe "knows how many more slices it needs" do
+        it "by calculating slices left" do
+            story = Story.create!(:title => "Test Story")
+            slices_left = story.slices_left
 
-        slices_left.should equal(story.total_slices)
+            slices_left.should equal(story.total_slices)
+        end
+        it "by calculating how many more slices it needs" do
+            story = Story.create!(:title => "Test Story")
+
+            story.how_many_more_slices.should equal(0)
+        end
     end
 
     describe "will control who can post" do

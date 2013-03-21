@@ -13,6 +13,10 @@ class Story < ActiveRecord::Base
       total_slices - slices.length
   end
 
+  def how_many_more_slices
+      slices.length  % total_slices
+  end
+
   def done?
       complete || done_by_count?
   end
