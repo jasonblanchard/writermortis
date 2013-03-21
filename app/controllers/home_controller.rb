@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
 
     def home
-        @incomplete_stories = Story.story_list(false,5)
-        @complete_stories = Story.story_list(true,5)
+        @incomplete_stories = Story.list(false,5)
+        @complete_stories = Story.list(true,5)
         @excerpt = Story.all(:conditions => {:complete => true}).last
 
         if user_signed_in?
