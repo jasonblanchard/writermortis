@@ -24,11 +24,13 @@
         <div class='span5 frontpage-section'>
             <h3>Unfinished</h3>
             <%= render 'stories/story_list', :stories => @incomplete_stories %>
+            <%= link_to 'More Unfinished Stories >>', stories_path, :class => 'btn' %>
         </div>
 
         <div class='span6 frontpage-section'>
             <h3>Finished</h3>
             <%= render 'stories/story_list', :stories => @complete_stories %>
+            <%= link_to 'More Finished Stories >>', stories_path, :class => 'btn' %>
         </div>
 
     </div>
