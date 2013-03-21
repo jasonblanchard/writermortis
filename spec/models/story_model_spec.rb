@@ -64,4 +64,32 @@ describe Story do
             expect(Story.complete_story(story)).to eq("<span id='user_1'>Once upon a time there was a pig.</span> <span id='user_1'>And he was eaten by a coyote.</span>")
         end
     end
+
+    describe "can show lists of stories" do
+
+        it "by returning a list of all complete stories" do
+            
+            5.times do
+                FactoryGirl.create(:story, :complete => true)
+            end
+
+            Story.story_list(true).length.should eq(5)
+        end
+
+        it "by returning a list of all incomplete stories" do
+            5.times do
+                FactoryGirl.create(:story)
+            end
+
+            Story.story_list(false).length.should eq(5)
+        end
+
+        it "by returning a limited list of complete stories" do
+            10.times do
+                FactoryGirl.create(:story, :complete => true)
+            end
+
+            Story.story_list(true,3).length.should eq(3)
+        end
+    end
 end
