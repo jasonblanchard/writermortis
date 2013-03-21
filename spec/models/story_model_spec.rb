@@ -19,7 +19,7 @@ describe Story do
         it "by calculating how many more slices it needs" do
             story = Story.create!(:title => "Test Story")
 
-            story.how_many_more_slices.should equal(0)
+            story.slices_done.should equal(0)
         end
     end
 
