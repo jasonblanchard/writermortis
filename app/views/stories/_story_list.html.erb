@@ -1,6 +1,11 @@
 <ul class="nav nav-pills nav-stacked story-list">
-  <% stories.each do |story| %>
-      <li><%= link_to story.title, story, :class => 'story-title' %></li>
+    <% stories.each do |story| %>
+        <% if !story.done? %>
+            <% suffix = " (#{story.slices_left}/#{story.total_slices})" %>
+        <% else %>
+            <% suffix = "" %>
+        <% end %>
+        <li><%= link_to "#{story.title}#{suffix}", :class => 'story-title' %>
   <% end %>
 </ul>
 
