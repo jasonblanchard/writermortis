@@ -10,6 +10,7 @@ user = User.find_or_create_by_email(ENV['TEST_USER_EMAIL'].dup)
 user.password = ENV['TEST_USER_PASSWORD'].dup
 user.save
 
-story = Story.find_or_create_by_title("My First Corpse");
+finished_story = Story.find_or_create_by_title("My First Corpse");
 story.user_id = user.id
+story.total_slices = 3
 story.save
