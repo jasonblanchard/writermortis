@@ -1,32 +1,5 @@
-<div class='row-fluid'>
-    <div class='welcome-top-section span12'>
-        <div class='span4 info'>
-            <br />
-            <br />
-            "...a method by which a collection of words or images is collectively assembled. Each collaborator adds to a composition in sequence, either by following a rule... or by being allowed to see the end of what the previous person contributed."
-            <br />
-            <br />
-            <div class='text-right light-link'>- <a href="http://en.wikipedia.org/wiki/Exquisite_corpse" target='_blank'>Wikipedia</a></span>
-        </div>
-    </div>
-</div>
-
-<div class='row-fluid'>
-    <div class='span4 frontpage-section'>
-        <h2>Create</h3>
-        <% if user_signed_in? %>
-            <%= link_to "New Story", new_story_path, :class=> 'btn' %>
-        <% else %>
-            <%= link_to "Sign In", new_user_session_path, :class => 'btn btn-success' %> to create a story
-        <% end %>
-    </div>
-    <div class='span4 frontpage-section center-section'>
-        <h2>Contribute</h2>
-        <%= div_for @stories do |story| %>
-            <%= link_to story.title, story %>
-        <% end %>
-    </div>
-    <div class='span4 frontpage-section'>
-        <h2>Read</h2>
-    </div>
-</div>
+<h2>Complete Stories</h2>
+<%= render 'story_list', :stories => @complete_stories %>
+<hr>
+<h2>Incomplete Stories</h2>
+<%= render 'story_list', :stories => @incomplete_stories %>

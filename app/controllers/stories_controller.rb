@@ -3,7 +3,8 @@ class StoriesController < ApplicationController
     before_filter :authenticate_user!, :only => [:new, :create]
 
     def index
-        @stories = Story.all
+        @complete_stories = Story.list(true,20)
+        @incomplete_stories = Story.list(false,20)
     end
 
     def show
