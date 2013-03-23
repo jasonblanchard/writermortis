@@ -55,6 +55,10 @@ class Story < ActiveRecord::Base
       end
   end
 
+  def generate_slice_bar(width)
+      ratio = ((slices_done.to_f / total_slices.to_f) * 100).to_i
+      markup = "<div class='slicebar' style='width:#{width}%;'><div class='slice-percentage' style='width:#{ratio}%;'></div></div>"
+  end
 
   private
 

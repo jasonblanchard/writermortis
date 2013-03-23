@@ -2,10 +2,12 @@
     <% stories.each do |story| %>
         <% if !story.done? %>
             <% suffix = " (#{story.slices_done}/#{story.total_slices})" %>
+            <% bar = story.generate_slice_bar(20) %>
         <% else %>
             <% suffix = "" %>
         <% end %>
-        <li><%= link_to "#{story.title}#{suffix}", story_path(story), :class => 'story-title' %>
+        <li><%= link_to "#{story.title}#{suffix}", story_path(story), :class => 'story-title' %></li>
+        <%= raw bar %>
   <% end %>
 </ul>
 

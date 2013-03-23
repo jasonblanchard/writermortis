@@ -8,6 +8,7 @@
 
         <div class='slices-left well'>
             <div class='slice-count'><span class='large'><%= @story.slices_done %></span><span class="muted"> /</span><span class='muted medium'> <%= @story.total_slices %></span></div>
+            <%= raw @story.generate_slice_bar(100) %>
         </div>
 
 

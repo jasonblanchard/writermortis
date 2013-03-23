@@ -68,7 +68,7 @@ describe Story do
             slice1 = FactoryGirl.create(:slice, :user_id => 1, :body => "Once upon a time there was a pig.")
             slice2 = FactoryGirl.create(:slice, :user_id => 1, :body => "And he was eaten by a coyote.")
 
-            expect(Story.complete_story(story)).to eq("<span id='user_1'>Once upon a time there was a pig.</span> <span id='user_1'>And he was eaten by a coyote.</span>")
+            expect(Story.complete_story(story)).to eq("<div class='slice inline' id='user_1'>Once upon a time there was a pig.</div> <div class='slice inline' id='user_1'>And he was eaten by a coyote.</div>")
         end
     end
 
@@ -98,5 +98,14 @@ describe Story do
 
             Story.list(true,3).length.should eq(3)
         end
+    end
+    describe "can generate a slice progress bar" do
+        it "from the story slices" do
+            story = FactoryGirl.create(:story, :total_slices => 10) 
+            5.times do
+                FactoryGirl.create(:slice, :story_id => story.id)
+            end 
+            expect(story.generate_slice_bar(100)).to eq("<div class='slicebar' style='width:100%;'><div class='slice-percentage' style='width:50%;'></div></div>")
+        end 
     end
 end
