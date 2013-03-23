@@ -23,11 +23,11 @@ class User < ActiveRecord::Base
           stories << slice.story if slice.story.done?
       end
 
-      self.stories.order('created_at DESC').each do |story|
+      Story.where("user_id = ? AND complete = ?", self.id, true).order('created_at DESC').each do |story|
           stories << story if story.done?
       end
 
-      stories.uniq
+      stories.uniq.sort! { |a,b| a.created_at <=> b.created_at }.reverse
   end
 
   def has_contributed_to_unfinished
@@ -37,11 +37,12 @@ class User < ActiveRecord::Base
           stories << slice.story if !slice.story.done?
       end
 
-      self.stories.order('created_at DESC').each do |story|
+      Story.where("user_id = ? AND complete = ?", self.id, false).order('created_at DESC').each do |story|
           stories << story if !story.done?
       end
 
       stories.uniq
+      stories.uniq.sort { |a,b| a.created_at <=> b.created_at }.reverse
   end
 
   def change_contributions_to_anon
