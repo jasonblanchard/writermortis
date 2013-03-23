@@ -33,10 +33,18 @@
     </div>
 
     <div class='control-group'>
+        <%= f.label :receive_emails, :class => 'control-label' %>
+        <div class='controls'>
+            <%= f.check_box :receive_emails %>
+        </div>
+    </div>
+
+    <div class='control-group'>
         <div class='controls'>
             <%= f.submit "Sign up", :class => 'btn' %>
         </div>
     </div>
+
 <% end %>
 
 <%= render "devise/shared/links" %>
