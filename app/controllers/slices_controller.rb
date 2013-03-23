@@ -24,4 +24,12 @@ class SlicesController < ApplicationController
         end
     end
 
+    def destroy
+        @story = Story.find(params[:story_id])
+        @slice = Slice.find(params[:id])
+        @slice.destroy
+
+        redirect_to @story, :notice => "Successfully deleted that part"
+    end
+
 end
