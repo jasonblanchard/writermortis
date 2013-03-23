@@ -26,5 +26,17 @@ describe User do
 
             slice.user.id.should be(anon.id)
         end
+
+        it "should change story users to anon" do
+            anon = FactoryGirl.create(:user, :email => 'anon@devnul.com', :name => 'anon')
+            user = FactoryGirl.create(:user)
+            story = FactoryGirl.create(:story)
+
+            user.destroy
+
+            story = Story.find(story.id)
+
+            story.user.id.should be(anon.id)
+        end
     end
 end
