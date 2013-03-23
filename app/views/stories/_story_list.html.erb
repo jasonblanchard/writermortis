@@ -6,8 +6,8 @@
         <% else %>
             <% suffix = "" %>
         <% end %>
-        <li><%= link_to "#{story.title}#{suffix}", story_path(story), :class => 'story-title' %></li>
-        <%= raw bar %>
+        <li><%= link_to story.title, story_path(story), :class => 'story-title' %></li>
+        <%= raw bar %><%= suffix %>
   <% end %>
 </ul>
 
