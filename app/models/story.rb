@@ -6,7 +6,7 @@ class Story < ActiveRecord::Base
   validates :max_sentences, :presence => true, :numericality => { :only_integer => true, :less_than => 15 }
 
   belongs_to :user
-  has_many :slices
+  has_many :slices, :dependent => :destroy
   has_many :users, :through => :slices
 
   def slices_left
