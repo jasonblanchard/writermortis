@@ -8,7 +8,19 @@ describe User do
     end
 
     describe "should return a users contributions" do
-        it "by showing unfinished stories a user contributed to"
+        it "by showing unfinished stories a user contributed to" do 
+            user = FactoryGirl.create(:user)
+            story = FactoryGirl.create(:story)
+
+            user.has_contributed_to_unfinished.length.should be(1)
+        end
+
+        it "by showing finished stories a user contributed to" do
+            user = FactoryGirl.create(:user)
+            story = FactoryGirl.create(:story, :complete => true)
+
+            user.has_contributed_to_finished.length.should be(1)
+        end
     end
 
     describe "deleting a user" do

@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
           stories << slice.story if slice.story.done?
       end
 
+      self.stories.order('created_at DESC').each do |story|
+          stories << story if story.done?
+      end
+
       stories.uniq
   end
 
@@ -31,6 +35,10 @@ class User < ActiveRecord::Base
 
       self.slices.order('created_at DESC').each do |slice|
           stories << slice.story if !slice.story.done?
+      end
+
+      self.stories.order('created_at DESC').each do |story|
+          stories << story if !story.done?
       end
 
       stories.uniq
