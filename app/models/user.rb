@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
   has_many :stories
   has_many :slices
 
+  before_destroy :change_contributions_to_anon
+
   def has_contributed_to_finished
       stories = []
 
@@ -32,6 +34,17 @@ class User < ActiveRecord::Base
       end
 
       stories.uniq
+  end
+
+  def change_contributions_to_anon
+      anon = User.find_by_name('anon').id
+      if (self.slices.length > 0)
+          self.slices.update_all(:user_id => anon)
+      end
+      
+      if (self.stories.length > 0)
+          self.stories.update_all(:user_id => anon)
+      end
   end
 
 end

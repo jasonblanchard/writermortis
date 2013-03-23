@@ -1,7 +1,7 @@
 class Slice < ActiveRecord::Base
   belongs_to :story
   belongs_to :user
-  attr_accessible :body
+  attr_accessible :body, :user_id
 
   validates :body, :presence => true
   validate :does_not_excede_max_sentences
