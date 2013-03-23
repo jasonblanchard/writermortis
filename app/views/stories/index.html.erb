@@ -1,15 +1,15 @@
 <div class='row-fluid'>
 
     <div class='span6 centered-text'>
-        <h2>Finished Stories</h2>
-        <hr>
-        <%= render 'story_list', :stories => @complete_stories %>
-    </div>
-
-    <div class='span6 centered-text'>
         <h2>Unfinished Stories</h2>
         <hr>
         <%= render 'story_list', :stories => @incomplete_stories %>
+    </div>
+
+    <div class='span6 centered-text'>
+        <h2>Finished Stories</h2>
+        <hr>
+        <%= render 'story_list', :stories => @complete_stories %>
     </div>
 
 </div>
