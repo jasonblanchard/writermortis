@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
   end
 
   def change_contributions_to_anon
-      anon = User.find_by_name('anon').id
+      anon = User.find_by_name('Anon').id
       if (self.slices.length > 0)
           self.slices.update_all(:user_id => anon)
       end
