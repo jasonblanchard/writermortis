@@ -19,7 +19,7 @@ anon.save!
 finished_story = Story.find_or_create_by_title("My First Corpse");
 finished_story.user_id = user.id
 finished_story.total_slices = 3
-finished_story.save
+finished_story.save!
 
 bodies = [
     { :user_id => anon.id, :body => "This is the beginning of the story." },
@@ -33,3 +33,7 @@ unless finished_story.done?
         finished_story.slices.create!(bodies[index])
     end
 end
+
+incomplete_story = Story.find_or_create_by_title("A Great New Story")
+incomplete_story.user_id = user.id
+incomplete_story.save!
