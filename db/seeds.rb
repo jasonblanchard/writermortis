@@ -11,12 +11,25 @@ user.password = ENV['TEST_USER_PASSWORD'].dup
 user.name = ENV['TEST_USER_NAME'].dup
 user.save!
 
-user = User.find_or_create_by_email('anon@example.com')
-user.name = "Anon"
-user.password = ENV['ANON_PASSWORD'].dup
-user.save!
+anon = User.find_or_create_by_email('anon@example.com')
+anon.name = "Anon"
+anon.password = ENV['ANON_PASSWORD'].dup
+anon.save!
 
 finished_story = Story.find_or_create_by_title("My First Corpse");
 finished_story.user_id = user.id
 finished_story.total_slices = 3
 finished_story.save
+
+bodies = [
+    { :user_id => anon.id, :body => "This is the beginning of the story." },
+    { :user_id => user.id, :body => "This is a new part of the story." },
+    { :user_id => anon.id, :body => "And this is the end of the story."}
+]
+
+unless finished_story.done?
+    bodies.each do |slice|
+        index = bodies.index(slice)
+        finished_story.slices.create!(bodies[index])
+    end
+end
