@@ -20,6 +20,21 @@ Exquisitecorpse::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  # Configure email for gmail
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { 
+      :address              => "smtp.gmail.com",
+      :port                 => 587,
+      :domain               => 'gmail.com',
+      :user_name            => ENV['GMAIL_USERNAME'],
+      :password             => ENV['GMAIL_PASSWORD'],
+      :authentication       => 'plain',
+      :enable_starttls_auto => true  }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'writermortis.com' }
+
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
