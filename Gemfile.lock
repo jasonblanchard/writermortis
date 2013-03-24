@@ -83,6 +83,7 @@ GEM
       rails (>= 3, < 5)
     gherkin (2.11.6)
       json (>= 1.7.6)
+    google-analytics-rails (0.0.4)
     google-webfonts (0.1.2)
       actionpack (>= 3.0.0)
     hike (1.2.1)
@@ -182,6 +183,7 @@ DEPENDENCIES
   devise
   factory_girl
   figaro
+  google-analytics-rails
   google-webfonts
   jquery-rails
   newrelic_rpm
