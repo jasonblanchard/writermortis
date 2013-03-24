@@ -7,6 +7,7 @@ class Slice < ActiveRecord::Base
   validate :does_not_excede_max_sentences
 
   after_save :update_story_status
+  after_destroy :update_story_status
 
   def does_not_excede_max_sentences
       if !body.blank?
@@ -25,7 +26,9 @@ class Slice < ActiveRecord::Base
     def update_story_status
         if self.story.slices.length >= self.story.total_slices
             self.story.update_attributes(:complete => true)
-        end 
+        else
+            self.story.update_attributes(:complete => false)
+        end
     end 
 
 end

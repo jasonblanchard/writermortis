@@ -22,4 +22,24 @@ describe Slice do
         
     end
 
+    it "should change story status to incomplete if you delete the last slice" do
+        user = FactoryGirl.create(:user)
+        story = FactoryGirl.create(:story, :total_slices => 3)
+
+        3.times do
+            FactoryGirl.create(:slice, :story_id => story.id)
+        end
+
+        story = Story.find(story.id)
+
+        story.complete?.should be_true
+
+        Slice.last.destroy
+
+        story = Story.find(story.id)
+
+        story.complete?.should be_false
+
+    end
+
 end
