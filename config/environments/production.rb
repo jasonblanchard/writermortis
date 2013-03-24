@@ -34,6 +34,9 @@ Exquisitecorpse::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default_url_options = { :host => 'writermortis.com' }
 
+  # Google analytics
+  GA.tracker = "UA-39565634-1"
+
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
 
