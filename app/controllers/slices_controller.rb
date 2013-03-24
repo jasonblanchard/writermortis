@@ -16,6 +16,7 @@ class SlicesController < ApplicationController
                 redirect_to @story, :notice => "The story is done!"
             else
                 redirect_to @story
+                StoryMailer.new_slice(@story.contributors, @story).deliver
             end
         else
             flash[:errors] = @slice.errors.full_messages
