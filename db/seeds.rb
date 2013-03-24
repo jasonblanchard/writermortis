@@ -11,8 +11,8 @@ user.password = ENV['TEST_USER_PASSWORD'].dup
 user.save
 
 user = User.find_or_create_by_email('anon@example.com')
-user.name => "Anon"
-user.password => ENV['ANON_PASSWORD'].dup
+user.name = "Anon"
+user.password = ENV['ANON_PASSWORD'].dup
 user.save!
 
 finished_story = Story.find_or_create_by_title("My First Corpse");
