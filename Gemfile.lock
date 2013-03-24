@@ -184,7 +184,7 @@ DEPENDENCIES
   devise
   factory_girl
   figaro
-  google-analytics-rails
+  google-analytics-rails (~> 0.0.4)
   google-webfonts
   jquery-rails
   newrelic_rpm
