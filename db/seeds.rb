@@ -8,7 +8,8 @@
 
 user = User.find_or_create_by_email(ENV['TEST_USER_EMAIL'].dup)
 user.password = ENV['TEST_USER_PASSWORD'].dup
-user.save
+user.name = ENV['TEST_USER_NAME'].dup
+user.save!
 
 user = User.find_or_create_by_email('anon@example.com')
 user.name = "Anon"
