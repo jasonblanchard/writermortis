@@ -1,5 +1,5 @@
 class Story < ActiveRecord::Base
-  attr_accessible :title, :max_sentences, :total_slices, :complete, :user_id
+  attr_accessible :title, :max_sentences, :total_slices, :complete, :user_id, :slices_attributes
 
   validates :title, :presence => true
   validates :total_slices, :presence => true, :numericality => { :only_integer => true, :less_than => 99 }
@@ -8,6 +8,8 @@ class Story < ActiveRecord::Base
   belongs_to :user
   has_many :slices, :dependent => :destroy
   has_many :users, :through => :slices
+
+  accepts_nested_attributes_for :slices, :allow_destroy => :true, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
 
   def slices_left
       total_slices - slices.length

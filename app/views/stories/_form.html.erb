@@ -1,3 +1,4 @@
+<% @story.slices.build %>
 <%= form_for @story, :html => {:class => 'form-horizontal'} do |f| %>
     <div class='error-messages'>
         <% if @story.errors.any? %>
@@ -29,6 +30,7 @@
             <%= f.text_field :total_slices %>
         </div>
     </div>
+    <%= render :partial => "slices/nested_form", :locals => {:form => f} unless @story.persisted?  %>
 
     <div class='control-group'>
         <%= f.submit :class => 'btn' %>

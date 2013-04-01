@@ -46,3 +46,16 @@ Feature: Create a Story
         And I click "[Edit Story]"
         And I click "Delete Story"
         Then I should see "Story deleted."
+
+    Scenario: User creates story with a slice
+        Given I am on the homepage
+        And I click "New Story"
+        And I fill in "story_title" with "Inline Story Slice"
+        And I fill in "story_slices_attributes_0_body" with "This is the first part"
+        And I push "Create Story"
+        Then I should see "This is the first part"
+
+    Scenario: 
+        Given I am on the "Call of Cthulhu" story page
+        And I click "Edit Story"
+        Then I should not see the "story_slices_attributes_0_body" field

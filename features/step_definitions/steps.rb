@@ -79,3 +79,7 @@ Then /^the page should list "(.*?)" as "(.*?)"$/ do |story, state|
     html = "<h3 class=\"muted\">#{state}</h3><div class=\"story\" id=\"story_#{id}\"><a href=\"/stories/#{id}\">#{story}</a></div>"
 
 end
+
+Then /^I should not see the "(.*?)" field$/ do |id|
+    have_no_css?("textarea.#{id}")
+end

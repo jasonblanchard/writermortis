@@ -10,7 +10,7 @@ class Slice < ActiveRecord::Base
   after_destroy :update_story_status
 
   def does_not_excede_max_sentences
-      if !body.blank?
+      if !body.blank? && story
         sentences = body.split(/([^\r\n.!?]+([.!?]+|$))/)
         sentences.keep_if { |i| i =~ /\w/ }
         max_sentences = self.story.max_sentences

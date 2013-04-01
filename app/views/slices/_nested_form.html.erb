@@ -1,0 +1,25 @@
+<%= form.fields_for :slices do |f| %>
+    <% if flash[:errors] %>
+        <div id='error_explanation' class='alert alert-error'>
+            <% flash[:errors].each do |error| %>
+                <p><%= error %></p>
+            <% end %>
+        </div>
+    <% end %>
+
+    <% @story.slices.each do |slice| %>
+        <div>
+            <% if slice.errors.any? %>
+                <ul>
+                <% slice.errors.full_messages.each do |error| %>
+                    <li><%= error %></li>
+                <% end %>
+            </ul>
+        <% end %>
+        </div>
+    <% end %>
+    <div>
+
+        <%= f.text_area :body, :rows => 6, :class => 'span8', :value => flash[:body] %>
+    </div>
+<% end %>
