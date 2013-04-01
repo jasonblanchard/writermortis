@@ -21,5 +21,6 @@
     <div>
 
         <%= f.text_area :body, :rows => 6, :class => 'span8', :value => flash[:body] %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
     </div>
 <% end %>

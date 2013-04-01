@@ -30,7 +30,12 @@
             <%= f.text_field :total_slices %>
         </div>
     </div>
-    <%= render :partial => "slices/nested_form", :locals => {:form => f} unless @story.persisted?  %>
+
+    <div class='control-group'>
+        <div class="controls">
+            <%= render :partial => "slices/nested_form", :locals => {:form => f} unless @story.persisted?  %>
+        </div>
+    </div>
 
     <div class='control-group'>
         <%= f.submit :class => 'btn' %>
