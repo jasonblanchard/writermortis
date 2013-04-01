@@ -9,7 +9,7 @@ class Story < ActiveRecord::Base
   has_many :slices, :dependent => :destroy
   has_many :users, :through => :slices
 
-  accepts_nested_attributes_for :slices, :allow_destroy => :true, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }
+  accepts_nested_attributes_for :slices, :allow_destroy => :true, :reject_if => proc { |attrs| attrs.all? { |k, v| v.blank? } }, :limit => 1
 
   def slices_left
       total_slices - slices.length

@@ -1,4 +1,4 @@
-<% @story.slices.build %>
+<% @story.slices.build if @story.slices.length < 1 %>
 <%= form_for @story, :html => {:class => 'form-horizontal'} do |f| %>
     <div class='error-messages'>
         <% if @story.errors.any? %>
