@@ -3,7 +3,7 @@ class Slice < ActiveRecord::Base
   belongs_to :user
   attr_accessible :body, :user_id
 
-  validates :body, :presence => true
+  validates :body, :presence => true, :if => :skip_slice_validation?
   validate :does_not_excede_max_sentences
 
   after_save :update_story_status
@@ -30,5 +30,9 @@ class Slice < ActiveRecord::Base
             self.story.update_attributes(:complete => false)
         end
     end 
+
+    def skip_slice_validation?
+        defined? params[:force_slice_submit]
+    end
 
 end
