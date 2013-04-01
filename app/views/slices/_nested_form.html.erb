@@ -18,10 +18,12 @@
         <% end %>
         </div>
     <% end %>
-    <div>
 
+    <div>
         <%= f.text_area :body, :rows => 6, :class => 'span8', :value => flash[:body] %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
+        <br />
+        <i>You can add a beginning to your story here. Leave it blank if you'd like someone else to start the story.</i>
         <%= hidden_field_tag :force_slice_submit %>
     </div>
 <% end %>
