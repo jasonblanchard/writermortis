@@ -32,7 +32,7 @@ class Slice < ActiveRecord::Base
     end 
 
     def skip_slice_validation?
-        defined? params[:force_slice_submit]
+        !defined? params[:force_slice_submit]
     end
 
 end
