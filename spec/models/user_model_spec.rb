@@ -25,7 +25,7 @@ describe User do
 
     describe "deleting a user" do
         it "should change slice users to anon" do
-            anon = FactoryGirl.create(:user, :email => 'anon@devnul.com', :name => 'anon')
+            anon = FactoryGirl.create(:user, :email => 'anon@devnul.com', :name => 'Anon')
             user = FactoryGirl.create(:user)
             story = FactoryGirl.create(:story)
             slice = FactoryGirl.create(:slice, :user_id => user.id)
@@ -40,7 +40,7 @@ describe User do
         end
 
         it "should change story users to anon" do
-            anon = FactoryGirl.create(:user, :email => 'anon@devnul.com', :name => 'anon')
+            anon = FactoryGirl.create(:user, :email => 'anon@devnul.com', :name => 'Anon')
             user = FactoryGirl.create(:user)
             story = FactoryGirl.create(:story)
 
