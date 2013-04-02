@@ -2,12 +2,10 @@
 
     <div class='span3 frontpage-section'>
         <div class='well'>
-            <h2>My Stories</h2>
-            <hr />
             <%= link_to 'New Story', new_story_path, :class => 'btn' %>
-            <h3>Unfinished</h3>
+            <hr />
             <%= render 'stories/story_list', :stories => @my_unfinished_stories %>
-            <h3>Finished</h3>
+            <hr />
             <%= render 'stories/story_list', :stories => @my_finished_stories %>
         </div>
     </div>
@@ -17,20 +15,16 @@
             <h2>Recent Stories</h2>
         </div>
 
-        <div class='span12'>
-            <%= render 'excerpt' %>
-        </div>
-
         <div class='span5 frontpage-section'>
-            <h3>Unfinished</h3>
             <%= render 'stories/story_list', :stories => @incomplete_stories %>
-            <%= link_to 'More Unfinished Stories >>', stories_path, :class => 'btn' %>
         </div>
 
         <div class='span6 frontpage-section'>
-            <h3>Finished</h3>
             <%= render 'stories/story_list', :stories => @complete_stories %>
-            <%= link_to 'More Finished Stories >>', stories_path, :class => 'btn' %>
+        </div>
+
+        <div class='span12'>
+            <%= render 'excerpt' %>
         </div>
 
     </div>
