@@ -3,6 +3,7 @@
 
 $text-on-dark: rgb(218, 216, 216);
 $link-color: rgb(172, 85, 85);
+$green: #51a351;
 
 h1, h2, h3 {
     font-weight: normal;
@@ -68,5 +69,13 @@ hr {
 }
 
 a.brand:hover {
+    color: $link-color;
+}
+
+.green {
+    color: $green;
+}
+
+.red {
     color: $link-color;
 }
