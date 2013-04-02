@@ -36,6 +36,7 @@
 
         <div class='large-top-margin'>
             <%= render 'stories/story_list', :stories => @incomplete_stories %>
+            <%= link_to 'More Stories >>', stories_path, :class => 'btn' %>
         </div>
     </div>
     <div class='span8 frontpage-section large-top-margin'>
