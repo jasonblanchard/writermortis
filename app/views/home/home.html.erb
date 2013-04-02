@@ -15,23 +15,30 @@
 
 
 <div class='row-fluid'>
-    <div class='span4 frontpage-section'>
-        <div>
-            <h2>Start a Story</h2>
-            <p class='align-left'><%= link_to "Sign In", new_user_session_path, :class => 'btn btn-success' %> to create a story.</p> 
-            <p class='align-left'>Decide how many contributions there will be and how many sentences each writer can add.</p>
-        </div>
-        <hr />
+    <div class='span4 frontpage-section top-spacing'>
+        <p>Decide how many contributions there will be and how many sentences each writer can add.</p>
+        <p><%= link_to "Sign In", new_user_session_path, :class => 'btn btn-success' %> to create a story.</p> 
+    </div>
+
+    <div class='span4 frontpage-section top-spacing'>
+        <p>View the last cotributed piece of the story, and build off that. You won't see the entire story until it's complete</p>
+    </div>
+
+    <div class='span4 frontpage-section top-spacing'>
+        <p>Once it's finished, see who added which part and share your story.</p>
+    </div>
+
+</div>
+
+<div class='row-fluid'>
+
+    <div class="span4 frontpage-section">
 
         <div class='large-top-margin'>
-            <h2>Contribute</h2>
-            <p class='align-left'>View the last piece of a story and write a new part.</p>
             <%= render 'stories/story_list', :stories => @incomplete_stories %>
         </div>
     </div>
-    <div class='span8 frontpage-section'>
-        <h2>Admire a Finished Story</h2>
+    <div class='span8 frontpage-section large-top-margin'>
         <%= render 'excerpt' %>
-        <%= link_to 'More Stories >>', stories_path, :class => 'btn pull-right' %>
     </div>
 </div>
