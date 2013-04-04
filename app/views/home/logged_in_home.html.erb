@@ -1,7 +1,8 @@
 <div class='row-fluid'>
 
     <div class='span3 frontpage-section'>
-        <div class='well'>
+        <div class='well my-stories'>
+            <h2>My Stories</h2>
             <%= link_to 'New Story', new_story_path, :class => 'btn' %>
             <hr />
             <%= render 'stories/story_list', :stories => @my_unfinished_stories %>
