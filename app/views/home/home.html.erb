@@ -2,44 +2,28 @@
     <div class='row-fluid'>
         <div class='welcome-top-section span12'>
             <div class='span4 info'>
-                <br />
-                <br />
-                <p>Writer Mortis is designed for writing collaborative <span class='medium'>exquisite corpses</span>, Frankensteinian stories patched together from the minds of multiple creators.</p>
-                <br />
-                <br />
-                <div class='text-right light-link'><a href="http://en.wikipedia.org/wiki/Exquisite_corpse" target='_blank'>More on Wikipedia</a></span>
+                <div class="center-text large-top-margin"><p><%= link_to "Sign In", new_user_session_path, :class => 'btn btn-success' %> to create a story.</p></div>
+                <div class="top-spacing">
+                    <p><span class='large'>1</span>Decide how many contributions there will be and how many sentences each writer can add.</p>
+                    <p><span class='large'>2</span>View the last cotributed piece of the story, and build off that. You won't see the entire story until it's complet</p>
+                    <p><span class='large'>3</span>Once it's finished, see who added which part and share your story.</p>
+                    <div class='text-right light-link'><a href="http://en.wikipedia.org/wiki/Exquisite_corpse" target='_blank'>More about exquisite corpses on Wikipedia</a></span>
+                </div>
             </div>
         </div>
     </div>
 <% end %>
 
-
-<div class='row-fluid'>
-    <div class='span4 frontpage-section top-spacing'>
-        <p class='align-left'>Decide how many contributions there will be and how many sentences each writer can add.</p>
-        <p><%= link_to "Sign In", new_user_session_path, :class => 'btn btn-success' %> to create a story.</p> 
-    </div>
-
-    <div class='span4 frontpage-section top-spacing'>
-        <p class='align-left'>View the last cotributed piece of the story, and build off that. You won't see the entire story until it's complete</p>
-    </div>
-
-    <div class='span4 frontpage-section top-spacing'>
-        <p class='align-left'>Once it's finished, see who added which part and share your story.</p>
-    </div>
-
-</div>
-
 <div class='row-fluid'>
 
     <div class="span4 frontpage-section">
 
-        <div class='large-top-margin'>
+        <div>
             <%= render 'stories/story_list', :stories => @incomplete_stories %>
             <%= link_to 'More Stories >>', stories_path, :class => 'btn' %>
         </div>
     </div>
-    <div class='span8 frontpage-section large-top-margin'>
+    <div class='span8 frontpage-section'>
         <%= render 'excerpt' %>
     </div>
 </div>

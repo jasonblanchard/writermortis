@@ -1,7 +1,7 @@
 $light-margin-color: rgb(221, 221, 221);
 $text-on-dark: rgb(218, 216, 216);
 $background: rgb(236, 236, 235);
-$info-background: rgba(119, 1, 1, 0.72);
+$info-background: rgba(119, 1, 1, 0.82);
 
 body {
     background: $background;
@@ -135,4 +135,8 @@ span.medium {
 .slice-percentage {
     background: rgb(100, 100, 100);
     height: 100%;
+}
+
+.center-text {
+    text-align: center;
 }
