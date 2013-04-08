@@ -13,7 +13,7 @@ class SlicesController < ApplicationController
 
         if @slice.save
             if @story.done?
-                redirect_to @story, :notice => "The story is done!"
+                redirect_to @story, :notice => "You finished the story!"
                 StoryMailer.completed_story(@story.contributors, @story).deliver
             else
                 redirect_to @story

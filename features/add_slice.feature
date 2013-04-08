@@ -38,7 +38,7 @@ Feature: Add slice to a story
         And I am on the "Call of Cthulhu" story page
         And I fill in "slice_body" with "They loved unicorns."
         And I push "Add to the Story"
-        Then I should see "The story is done!"
+        Then I should see "You finished the story!"
         And I should see "The men were going to an island of unicorns. And they were very excited. They loved unicorns."
         And the HTML should show that "Sally" wrote "The men were going to an island of unicorns."
         And I should see "test"
