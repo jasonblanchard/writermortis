@@ -9,9 +9,9 @@ Installation
 ============
 Install RVM to manage ruby versions and your Gemset for this project.
 
-`git clone` the repo
+Run `git clone https://github.com/jasonblanchard/writermortis.git`
 
-`cp config/application.yml.exampl config/application.yml` and fill out variables
+`cp config/application.yml.example config/application.yml` and fill out variables
 
 Run `rake db:migrate` to set up the schema
 
