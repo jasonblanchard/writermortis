@@ -4,10 +4,18 @@
         <div class='well my-stories'>
             <h2>My Stories</h2>
             <%= link_to 'New Story', new_story_path, :class => 'btn' %>
-            <hr />
-            <%= render 'stories/story_list', :stories => @my_unfinished_stories %>
-            <hr />
-            <%= render 'stories/story_list', :stories => @my_finished_stories %>
+            <% unless @my_unfinished_stories.empty? %>
+                <hr />
+                <%= render 'stories/story_list', :stories => @my_unfinished_stories %>
+            <% end %>
+            <% unless @my_finished_stories.empty? %>
+                <hr />
+                <%= render 'stories/story_list', :stories => @my_finished_stories %>
+            <% end %>
+            <% if @my_unfinished_stories.empty? && @my_finished_stories.empty? %>
+                <p class='align-left large-top-margin'>You don't have any stories yet :/</p>
+                <p class='align-left'>You can start a new one or contribute to an existing story.</p>
+            <% end %>
         </div>
     </div>
 

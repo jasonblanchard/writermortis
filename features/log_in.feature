@@ -7,6 +7,7 @@ Feature: Log in to the site
         Given the following users exist:
             | email             | password  | name  |
             | test@example.com  | testpass  | test  |
+            | sally@example.com | testpass  | sally |
 
         Given the following stories exist:
             | Title             | Max Sentences | Total Slices  | author    |
@@ -44,3 +45,8 @@ Feature: Log in to the site
         Given I am logged in
         Then the page should list "Into the wild" as "Unfinished"
         And the page should list "A Completed Story" as "Finished"
+
+    Scenario: Logged in user without any stories sees special message on sidebar
+        Given "sally@example.com" is logged in
+        And I am on the homepage
+        Then I should see "You don't have any stories yet :/ You can start a new one or contribute to an existing story."
