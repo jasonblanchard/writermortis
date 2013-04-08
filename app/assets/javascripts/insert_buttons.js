@@ -6,18 +6,21 @@ $(document).ready( function() {
     $('button.continue-line').click( function() {
         newVal = inputBox.val().replace(/^\s+|\s+$/g, '');
         inputBox.focus().val("").val(newVal);
+        return false;
     });
 
     $('button.new-line').click( function() {
         var val = inputBox.val().replace(/^\s+|\s+$/g, '');
         newVal = '\n' + val;
         inputBox.focus().val("").val(newVal);
+        return false;
     });
 
     $('button.new-paragraph').click( function() {
         var val = inputBox.val().replace(/^\s+|\s+$/g, '');
         newVal = '\n\n' + val;
         inputBox.focus().val("").val(newVal);
+        return false;
     });
 
 });
