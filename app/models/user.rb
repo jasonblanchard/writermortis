@@ -9,7 +9,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :receive_emails
   attr_accessible :email, :name
 
-  validates :name, :presence => true, :uniqueness => true
+  validates :name, :presence => true, 
+      :uniqueness => true, 
+      :format => { :with => /\A[a-zA-Z\_\d]+\z/, :message => "with only letters and underscores, please." },
+      :length => { :minimum => 2, :maximum => 15 }
 
   has_many :stories
   has_many :slices
