@@ -37,6 +37,11 @@
         <div class='slice-form'>
             <% if user_signed_in? %>
                 <%= @story.can_have_slice_by(current_user) %>
+                <br />
+                <%= current_user.inspect %>
+                <br />
+                <br />
+                <%= @story.users.last.inspect %>
                 <% if @story.can_have_slice_by(current_user) %>
                     <div class="slice-form-wrapper">
                         <%= render 'slices/form' %>
