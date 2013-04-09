@@ -12,6 +12,7 @@ Feature: Add slice to a story
         Given the following stories exist:
             | Title             | Max Sentences | Total Slices  | author    |
             | Call of Cthulhu   | 5             | 3             | test      |
+            | The General       | 5             | 3             | test      |
 
     Scenario: Add a single slice
         Given I am logged in
@@ -76,3 +77,16 @@ Feature: Add slice to a story
         And I push "Add to the Story"
         And I click "Delete this part]"
         Then I should see "Successfully deleted that part"
+
+    Scenario: Add a slice and see last two contributions
+        Given I am logged out
+        Given "sally@example.com" is logged in
+        Given I am on the "The General" story page
+        And I fill in "slice_body" with "The general walked into a bar."
+        And I push "Add to the Story"
+        And I am logged out
+        And "test@example.com" is logged in
+        And I am on the "The General" story page
+        And I fill in "slice_body" with " And it hurt."
+        And I push "Add to the Story"
+        Then I should see "The general walked into a bar. And it hurt."
