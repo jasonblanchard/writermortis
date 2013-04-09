@@ -108,4 +108,15 @@ describe Story do
             expect(story.generate_slice_bar(100)).to eq("<div class='slicebar' style='width:100%;'><div class='slice-percentage' style='width:50%;'></div></div>")
         end 
     end
+
+    describe "can show the last part" do
+        it "by concatenating the last two slices" do
+            story = FactoryGirl.create(:story)
+            FactoryGirl.create(:slice, :body => "This is the first slice.")
+            FactoryGirl.create(:slice, :body => " And this is the second slice.")
+
+            expect(story.last_two_slices).to eq("This is the first slice. And this is the second slice.")
+        end
+    end
+
 end

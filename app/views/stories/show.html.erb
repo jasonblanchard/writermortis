@@ -22,11 +22,9 @@
             <% end %>
             <h3><%= @story.title %></h3>
             <% if @story.slices.last %>
-                <%= div_for @story.slices.last do |slice| %>
-                    <%= simple_format slice.body %>
-                    <% if slice.user == current_user %>
-                        <%= link_to "[Delete this part]", story_slice_path(@story, slice), :method => "delete", :data => { confirm: "Are you sure?"} %>
-                    <% end %>
+                <%= simple_format @story.last_two_slices %>
+                <% if @story.slices.last.user == current_user %>
+                    <%= link_to "[Delete this part]", story_slice_path(@story, @story.slices.last), :method => "delete", :data => { confirm: "Are you sure?"} %>
                 <% end %>
             <% else %>
                 <i>This story needs a beginning...</i>
