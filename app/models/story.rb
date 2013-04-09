@@ -32,11 +32,11 @@ class Story < ActiveRecord::Base
   end
 
   def last_two_slices
-      last_part = ''
-      slices.order('created_at DESC').limit(2).reverse.each do |slice|
-          last_part += slice.body
+      last_part = []
+      slices.order('created_at DESC').limit(2).each do |slice|
+          last_part << slice.body
       end
-      last_part
+      last_part.reverse.join
   end
 
   def contributors
