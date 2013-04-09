@@ -24,7 +24,7 @@ class Story < ActiveRecord::Base
   end
 
   def can_have_slice_by(user)
-      if  users.last and user.id == users.last.id
+      if  users.last and user.id == slices.last.user.id
           false
       else
           true
