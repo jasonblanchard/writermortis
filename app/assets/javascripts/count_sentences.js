@@ -27,11 +27,13 @@ function updateSentenceCount() {
     var sentences = $('textarea#slice_body').val().match(/([^\r\n.!?]+([.!?]+|$))/gim);
     var span = "";
     var sentencesLeft;
+    var sentencesToRemove;
     var plural;
 
     if (sentences != null) {
    
-        sentencesLeft = maxSentences - sentences.length
+        sentencesLeft = maxSentences - sentences.length;
+        sentencesToRemove = sentences.length - maxSentences;
 
         if (sentences.length > maxSentences) {
             span = "red";
@@ -39,14 +41,25 @@ function updateSentenceCount() {
             span = "green";
         }
 
-        if (sentencesLeft == 1) {
+        if ((sentencesLeft == 1) || (sentencesToRemove == 1)) {
             plural = "sentence";
         } else {
             plural = "sentences";
         }
 
-        $('.sentence-update').html('This story allows ' + maxSentences + ' sentences. <span class="' + span + '"> You can write ' + (sentencesLeft) + ' more ' + plural + '.</span>');
+        if (sentences.length > maxSentences) {
+
+            span = "red";
+
+            $('.sentence-update').html('This story allows ' + maxSentences + ' sentences. <span class="' + span + '"> You have to remove ' + (sentences.length - maxSentences) + ' ' + plural + '.</span>');
+
+        } else {
+
+            $('.sentence-update').html('This story allows ' + maxSentences + ' sentences. <span class="' + span + '"> You can write ' + (sentencesLeft) + ' more ' + plural + '.</span>');
+        }
+
     } else {
+
         $('.sentence-update').html('This story allows ' + maxSentences + ' sentences. <span class="' + span + '">You have written 0 sentences.</span>');
     }
 
