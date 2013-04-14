@@ -25,6 +25,8 @@
         </div>
     </div>
     <div class='span8 frontpage-section'>
-        <%= render 'excerpt' %>
+        <% cache "story-#{@excerpt.id}/#{@excerpt.updated_at.to_i}" do %>
+            <%= render 'excerpt' %>
+        <% end %>
     </div>
 </div>
