@@ -2,6 +2,11 @@ class StoriesController < ApplicationController
 
     before_filter :authenticate_user!, :only => [:new, :create]
 
+    caches_action :show, :cache_path => proc { |c|
+        post = Story.find(c.params[:id])
+        {:tag => post.updated_at.to_i}
+    }
+
     def index
         @complete_stories = Story.list(true,20)
         @incomplete_stories = Story.list(false,20)
