@@ -1,5 +1,5 @@
 class Slice < ActiveRecord::Base
-  belongs_to :story
+  belongs_to :story, :touch => true
   belongs_to :user
   attr_accessible :body, :user_id
 
