@@ -143,3 +143,9 @@ span.medium {
 .fixed-position {
     position: fixed;
 }
+
+@media (max-width: 768px) {
+    .fixed-position {
+        position: inherit;
+    }
+}
