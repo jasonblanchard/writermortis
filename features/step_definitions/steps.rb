@@ -66,7 +66,7 @@ end
 
 Then /^the HTML should show that "(.*?)" wrote "(.*?)"$/ do |name, slice|
     id = User.find_by_name(name).id
-    page.body.include?("<div class=\"slice inline\" id=\"user_#{id}\">#{slice}</div>").should be_true
+    page.body.include?("<a href=\"#\" class=\"slice\" id=\"user_#{id}\">#{slice}</a>").should be_true
 end
 
 Given /^show page$/ do
