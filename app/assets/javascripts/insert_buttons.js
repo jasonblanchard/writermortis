@@ -4,7 +4,7 @@ $(document).ready( function() {
     var newVal = '';
 
     $('button.continue-line').click( function() {
-        newVal = inputBox.val().replace(/^\s+|\s+$/g, '');
+        newVal = " " + inputBox.val().replace(/^\s+|\s+$/g, '');
         inputBox.focus().val("").val(newVal);
         return false;
     });

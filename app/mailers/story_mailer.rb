@@ -4,13 +4,13 @@ class StoryMailer < ActionMailer::Base
   def new_slice(users, story)
       @users = emailable_users(users)
       @story = story
-      mail(:to => @users, :subject => "New Part Added to \"#{@story.title}\"")
+      mail(:bcc => @users, :subject => "New Part Added to \"#{@story.title}\"")
   end
 
   def completed_story(users, story)
       @users = emailable_users(users)
       @story = story
-      mail(:to => @users, :subject => "\"#{@story.title}\" is Finished")
+      mail(:bcc => @users, :subject => "\"#{@story.title}\" is Finished")
   end
 
   private
