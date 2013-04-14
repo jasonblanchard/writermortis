@@ -25,15 +25,27 @@ function updateSentenceCount() {
     $('.sentence-update').html('');
 
     var sentences = $('textarea#slice_body').val().match(/([^\r\n.!?]+([.!?]+|$))/gim);
-    var span = ""
+    var span = "";
+    var sentencesLeft;
+    var plural;
 
     if (sentences != null) {
+   
+        sentencesLeft = maxSentences - sentences.length
+
         if (sentences.length > maxSentences) {
             span = "red";
         } else {
             span = "green";
         }
-        $('.sentence-update').html('This story allows ' + maxSentences + ' sentences. <span class="' + span + '"> You have written ' + sentences.length + ' sentences.</span>');
+
+        if (sentencesLeft == 1) {
+            plural = "sentence";
+        } else {
+            plural = "sentences";
+        }
+
+        $('.sentence-update').html('This story allows ' + maxSentences + ' sentences. <span class="' + span + '"> You can write ' + (sentencesLeft) + ' more ' + plural + '.</span>');
     } else {
         $('.sentence-update').html('This story allows ' + maxSentences + ' sentences. <span class="' + span + '">You have written 0 sentences.</span>');
     }
