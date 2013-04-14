@@ -3,7 +3,11 @@ $(document).ready(function() {
 
     if ($('.complete-story').length > 0) {
 
-        $('div.slice').each(function() {
+        $('a.slice').each(function() {
+            $(this).click(function() {
+                return false;
+            });
+
             $(this).hover(function() {
                 userId = $(this).attr('id');
 

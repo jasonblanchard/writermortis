@@ -4,6 +4,8 @@
 $text-on-dark: rgb(218, 216, 216);
 $link-color: rgb(172, 85, 85);
 $green: #51a351;
+$text-on-dark: rgb(218, 216, 216);
+$text-color: #333333;
 
 h1, h2, h3 {
     font-weight: normal;
@@ -82,4 +84,9 @@ a.brand:hover {
 
 .my-stories {
     padding-top: 0px;
+}
+
+a.slice {
+    color: $text-color;
+    &:hover { text-decoration: none; }
 }

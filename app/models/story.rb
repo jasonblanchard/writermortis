@@ -51,7 +51,7 @@ class Story < ActiveRecord::Base
       complete_story = []
 
       story.slices.each do |slice|
-          complete_story << "<div class='slice inline' id='user_#{slice.user.id}'>#{slice.body}</div>"
+          complete_story << "<a href='#' class='slice' id='user_#{slice.user.id}'>#{slice.body}</a>"
       end
 
       complete_story.join(" ")
