@@ -35,6 +35,8 @@ class StoriesController < ApplicationController
         else
             render :new
         end
+
+        expire_fragment('recent_unfinished_stories')
     end
 
     def edit
@@ -57,6 +59,8 @@ class StoriesController < ApplicationController
         @story.destroy
 
         redirect_to :root, :notice => "Story deleted."
+        
+        expire_fragment('recent_unfinished_stories')
     end
 
 end

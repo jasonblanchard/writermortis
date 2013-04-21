@@ -20,8 +20,10 @@
     <div class="span4 frontpage-section">
 
         <div>
-            <%= render 'stories/story_list', :stories => @incomplete_stories %>
-            <%= link_to 'More Stories >>', stories_path, :class => 'btn' %>
+            <% cache('recent_unfinished_stories') do %>
+                <%= render 'stories/story_list', :stories => @incomplete_stories %>
+                <%= link_to 'More Stories >>', stories_path, :class => 'btn' %>
+            <% end %>
         </div>
     </div>
     <div class='span8 frontpage-section'>
