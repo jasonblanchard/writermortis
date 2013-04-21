@@ -47,11 +47,17 @@ class Story < ActiveRecord::Base
       end
   end
 
-  def self.complete_story(story)
+  def self.complete_story(story, type=:full)
       complete_story = []
 
-      story.slices.each do |slice|
-          complete_story << "<a href='#' class='slice' id='user_#{slice.user.id}'>#{slice.body}</a>"
+      if type == :excerpt
+          story.slices.each do |slice|
+              complete_story << slice.body
+          end
+      else
+          story.slices.each do |slice|
+              complete_story << "<a href='#' class='slice' id='user_#{slice.user.id}'>#{slice.body}</a>"
+          end
       end
 
       complete_story.join(" ")

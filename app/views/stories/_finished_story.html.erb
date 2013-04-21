@@ -1,1 +1,1 @@
-<%= simple_format(sanitize(Story.complete_story(@story), :tags => %w(div a), :attributes => %w(id class href)), {}, :sanitize => false) %>
+<%= simple_format(sanitize(Story.complete_story(@story, @type), :tags => %w(div a), :attributes => %w(id class href)), {}, :sanitize => false) %>
