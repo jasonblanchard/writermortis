@@ -68,7 +68,7 @@ describe Story do
             slice1 = FactoryGirl.create(:slice, :user_id => 1, :body => "Once upon a time there was a pig.")
             slice2 = FactoryGirl.create(:slice, :user_id => 1, :body => "And he was eaten by a coyote.")
 
-            expect(Story.complete_story(story)).to eq("<div class='slice inline' id='user_1'>Once upon a time there was a pig.</div> <div class='slice inline' id='user_1'>And he was eaten by a coyote.</div>")
+            expect(Story.complete_story(story)).to eq("<a href='#' class='slice' id='user_1'>Once upon a time there was a pig.</a> <a href='#' class='slice' id='user_1'>And he was eaten by a coyote.</a>")
         end
     end
 
