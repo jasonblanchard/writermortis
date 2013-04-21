@@ -6,11 +6,15 @@
             <%= link_to 'New Story', new_story_path, :class => 'btn' %>
             <% unless @my_unfinished_stories.empty? %>
                 <hr />
-                <%= render 'stories/story_list', :stories => @my_unfinished_stories %>
+                <% cache ("user_#{current_user.id}_unfinished_stories") do %>
+                    <%= render 'stories/story_list', :stories => @my_unfinished_stories %>
+                <% end %>
             <% end %>
             <% unless @my_finished_stories.empty? %>
                 <hr />
-                <%= render 'stories/story_list', :stories => @my_finished_stories %>
+                <% cache ("user_#{current_user.id}_finished_stories") do %>
+                    <%= render 'stories/story_list', :stories => @my_finished_stories %>
+                <% end %>
             <% end %>
             <% if @my_unfinished_stories.empty? && @my_finished_stories.empty? %>
                 <p class='align-left large-top-margin'>You don't have any stories yet :/</p>

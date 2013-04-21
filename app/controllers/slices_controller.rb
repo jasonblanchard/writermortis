@@ -17,6 +17,8 @@ class SlicesController < ApplicationController
                 StoryMailer.completed_story(@story.contributors, @story).deliver
                 expire_fragment('recent_unfinished_stories')
                 expire_fragment('recent_finished_stories')
+                expire_fragment("user_#{current_user.id}_unfinished_stories")
+                expire_fragment("user_#{current_user.id}_unfinished_stories")
             else
                 redirect_to @story
                 StoryMailer.new_slice(@story.contributors, @story).deliver

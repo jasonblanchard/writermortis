@@ -32,6 +32,8 @@ class StoriesController < ApplicationController
         end
 
         expire_fragment('recent_unfinished_stories')
+        expire_fragment("user_#{current_user.id}_unfinished_stories")
+        expire_fragment("user_#{current_user.id}_unfinished_stories")
     end
 
     def edit
@@ -57,6 +59,8 @@ class StoriesController < ApplicationController
         
         expire_fragment('recent_unfinished_stories')
         expire_fragment('recent_finished_stories')
+        expire_fragment("user_#{current_user.id}_unfinished_stories")
+        expire_fragment("user_#{current_user.id}_unfinished_stories")
     end
 
 end
