@@ -60,3 +60,10 @@ Feature: Create a Story
         Given I am on the "Call of Cthulhu" story page
         And I click "Edit Story"
         Then I should not see the "story_slices_attributes_0_body" field
+
+    Scenario: Story must have 2 or mor max slices
+        Given I am on the "/stories/new" page
+        And I fill in "story_title" with "This is a short story"
+        And I fill in "story_total_slices" with "1"
+        And I push "Create Story"
+        Then I should see "Total slices must be greater than or equal to 2"

@@ -83,3 +83,7 @@ end
 Then /^I should not see the "(.*?)" field$/ do |id|
     have_no_css?("textarea.#{id}")
 end
+
+Given(/^I am on the "(.*?)" page$/) do |page|
+    visit page
+end
