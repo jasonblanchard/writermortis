@@ -15,6 +15,8 @@ class SlicesController < ApplicationController
             if @story.done?
                 redirect_to @story, :notice => "You finished the story!"
                 StoryMailer.completed_story(@story.contributors, @story).deliver
+                expire_fragment('recent_unfinished_stories')
+                expire_fragment('recent_finished_stories')
             else
                 redirect_to @story
                 StoryMailer.new_slice(@story.contributors, @story).deliver

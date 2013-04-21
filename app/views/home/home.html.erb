@@ -22,13 +22,11 @@
         <div>
             <% cache('recent_unfinished_stories') do %>
                 <%= render 'stories/story_list', :stories => @incomplete_stories %>
-                <%= link_to 'More Stories >>', stories_path, :class => 'btn' %>
             <% end %>
+            <%= link_to 'More Stories >>', stories_path, :class => 'btn' %>
         </div>
     </div>
     <div class='span8 frontpage-section'>
-        <% cache "story-#{@excerpt.id}/#{@excerpt.updated_at.to_i}" do %>
-            <%= render 'excerpt' %>
-        <% end %>
+        <%= render 'excerpt' %>
     </div>
 </div>

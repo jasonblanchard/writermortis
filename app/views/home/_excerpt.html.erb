@@ -1,5 +1,7 @@
 <%= div_for @excerpt, :class => 'align-left' do |story| %>
     <%= link_to 'More Stories >>', stories_path, :class => 'btn pull-right' %>
     <h3><%= link_to story.title, story_path(story) %></h3>
-    <i><%= render 'stories/finished_story.html.erb', :@story => story, :@type => :excerpt %></i>
+    <% cache "story-#{@excerpt.id}/#{@excerpt.updated_at.to_i}" do %>
+        <i><%= render 'stories/finished_story.html.erb', :@story => story, :@type => :excerpt %></i>
+    <% end %>
 <% end %>

@@ -25,11 +25,15 @@
         </div>
 
         <div class='span5 frontpage-section'>
+        <% cache('recent_unfinished_stories') do %>
             <%= render 'stories/story_list', :stories => @incomplete_stories %>
+        <% end %>
         </div>
 
         <div class='span6 frontpage-section'>
-            <%= render 'stories/story_list', :stories => @complete_stories %>
+            <% cache('recent_finished_stories') do %>
+                <%= render 'stories/story_list', :stories => @complete_stories %>
+            <% end %>
         </div>
 
         <div class='span12'>
