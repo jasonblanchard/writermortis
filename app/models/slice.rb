@@ -1,6 +1,6 @@
 class Slice < ActiveRecord::Base
   belongs_to :story, :touch => true
-  belongs_to :user
+  belongs_to :user, :touch => true
   attr_accessible :body, :user_id
 
   validates :body, :presence => true, :if => :skip_slice_validation?
