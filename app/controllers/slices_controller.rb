@@ -21,12 +21,11 @@ class SlicesController < ApplicationController
                 redirect_to @story
                 StoryMailer.new_slice(@story.contributors, @story).deliver
             end
-            expire_fragment("user_#{current_user.id}_unfinished_stories")
-            expire_fragment("user_#{current_user.id}_finished_stories")
+            expire_fragment("user_#{current_user.id}_#{current_user.updated_at.to_i}_unfinished_stories")
+            expire_fragment("user_#{current_user.id}_#{current_user.updated_at.to_i}_finished_stories")
             expire_fragment("recent_unfinished_stories")
             @story.contributors.each do |user|
-                expire_fragment("user_#{user.id}_unfinished_stories")
-                expire_fragment("user_#{user.id}_finished_stories")
+                user.touch
             end
         else
             flash[:errors] = @slice.errors.full_messages
@@ -38,12 +37,12 @@ class SlicesController < ApplicationController
     def destroy
         @story = Story.find(params[:story_id])
         @slice = Slice.find(params[:id])
-        expire_fragment("user_#{current_user.id}_unfinished_stories")
-        expire_fragment("user_#{current_user.id}_finished_stories")
+
+        expire_fragment("user_#{current_user.id}_#{current_user.updated_at.to_i}_unfinished_stories")
+        expire_fragment("user_#{current_user.id}_#{current_user.updated_at.to_i}_finished_stories")
         expire_fragment("recent_unfinished_stories")
         @story.contributors.each do |user|
-            expire_fragment("user_#{user.id}_unfinished_stories")
-            expire_fragment("user_#{user.id}_finished_stories")
+            user.touch
         end
 
         @slice.destroy
