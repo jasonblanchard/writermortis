@@ -42,6 +42,7 @@
                 <% else %>
                     <div class="slice-form-wrapper no-form alert alert-success">
                         Now ask a friend to continue the story!
+                        <%= tweet_button(:count => "horizontal", :text => "Add to \"#{@story.twitterfy_title}\" to make an awesome story!", :via => 'writermortis', :url => story_url(@story, :host => 'www.writermortis.com')) %>
                     </div>
                 <% end %>
             <% else %>

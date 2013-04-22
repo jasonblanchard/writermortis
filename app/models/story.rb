@@ -76,6 +76,14 @@ class Story < ActiveRecord::Base
       markup = "<div class='slicebar' style='width:#{width}%;'><div class='slice-percentage' style='width:#{ratio}%;'></div></div>"
   end
 
+  def twitterfy_title
+      if self.title.length > 50
+          self.title.slice(0..50) + "..."
+      else
+          self.title
+      end
+  end
+
   private
 
   def done_by_count?
