@@ -1,14 +1,18 @@
 <div class='row-fluid'>
 
-    <div class='span9 complete-story'>
-        <h3><%= @story.title %></h3>
-        <%= render 'finished_story' %>
-        <%= link_to "Create a New Story!", new_story_path, :class=> 'btn' %>
-    </div>
+    <% cache("complete_story#{@story.id}-#{@story.updated_at.to_i}") do %>
 
-    <div class="contributors span2 offset1">
-        <div class='fixed-position'>
-            <%= render 'contributors' %>
+        <div class='span9 complete-story'>
+            <h3><%= @story.title %></h3>
+            <%= render 'finished_story' %>
+            <%= link_to "Create a New Story!", new_story_path, :class=> 'btn' %>
         </div>
-    </div>
+
+        <div class="contributors span2 offset1">
+            <div class='fixed-position'>
+                <%= render 'contributors' %>
+            </div>
+        </div>
+    <% end %>
+
 </div>
