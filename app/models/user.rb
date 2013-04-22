@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   before_destroy :change_contributions_to_anon
 
   def has_contributed_to_finished
-      Rails.cache.fetch("user#{id}-has-contributed-to-finished-#{updated_at.to_i}", :expires_in => 30.minutes) do
+      Rails.cache.fetch("user#{id}-has-contributed-to-finished-#{updated_at.to_i}") do
           stories = []
 
           self.slices.order('created_at DESC').each do |slice|
@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   end
 
   def has_contributed_to_unfinished
-      Rails.cache.fetch("user#{id}-has-contributed-to-unfinished-#{updated_at.to_i}", :expires_in => 30.minutes) do
+      Rails.cache.fetch("user#{id}-has-contributed-to-unfinished-#{updated_at.to_i}") do
           stories = []
 
           self.slices.order('created_at DESC').each do |slice|
