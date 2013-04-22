@@ -61,6 +61,10 @@ class StoriesController < ApplicationController
         expire_fragment('recent_finished_stories')
         expire_fragment("user_#{current_user.id}_unfinished_stories")
         expire_fragment("user_#{current_user.id}_unfinished_stories")
+        @story.contributors.each do |user|
+            expire_fragment("user_#{user.id}_unfinished_stories")
+            expire_fragment("user_#{user.id}_finished_stories")
+        end 
     end
 
 end
