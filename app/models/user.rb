@@ -20,32 +20,36 @@ class User < ActiveRecord::Base
   before_destroy :change_contributions_to_anon
 
   def has_contributed_to_finished
-      stories = []
+      Rails.cache.fetch("user#{id}-has-contributed-to-finished-#{updated_at.to_i}", :expires_in => 30.minutes) do
+          stories = []
 
-      self.slices.order('created_at DESC').each do |slice|
-          stories << slice.story if slice.story.done?
+          self.slices.order('created_at DESC').each do |slice|
+              stories << slice.story if slice.story.done?
+          end
+
+          Story.where("user_id = ? AND complete = ?", self.id, true).order('created_at DESC').each do |story|
+              stories << story if story.done?
+          end
+
+          stories.uniq.sort! { |a,b| a.created_at <=> b.created_at }.reverse
       end
-
-      Story.where("user_id = ? AND complete = ?", self.id, true).order('created_at DESC').each do |story|
-          stories << story if story.done?
-      end
-
-      stories.uniq.sort! { |a,b| a.created_at <=> b.created_at }.reverse
   end
 
   def has_contributed_to_unfinished
-      stories = []
+      Rails.cache.fetch("user#{id}-has-contributed-to-unfinished-#{updated_at.to_i}", :expires_in => 30.minutes) do
+          stories = []
 
-      self.slices.order('created_at DESC').each do |slice|
-          stories << slice.story if !slice.story.done?
+          self.slices.order('created_at DESC').each do |slice|
+              stories << slice.story if !slice.story.done?
+          end
+
+          Story.where("user_id = ? AND complete = ?", self.id, false).order('created_at DESC').each do |story|
+              stories << story if !story.done?
+          end
+
+          stories.uniq
+          stories.uniq.sort { |a,b| a.created_at <=> b.created_at }.reverse
       end
-
-      Story.where("user_id = ? AND complete = ?", self.id, false).order('created_at DESC').each do |story|
-          stories << story if !story.done?
-      end
-
-      stories.uniq
-      stories.uniq.sort { |a,b| a.created_at <=> b.created_at }.reverse
   end
 
   def change_contributions_to_anon
