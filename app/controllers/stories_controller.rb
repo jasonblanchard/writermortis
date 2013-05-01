@@ -1,6 +1,7 @@
 class StoriesController < ApplicationController
 
     before_filter :authenticate_user!, :only => [:new, :create]
+    cache_sweeper :story_list_sweeper
 
     def index
         @complete_stories = Story.list(true,20)
@@ -30,8 +31,6 @@ class StoriesController < ApplicationController
         else
             render :new
         end
-
-        expire_fragment('recent_unfinished_stories')
     end
 
     def edit
@@ -54,9 +53,6 @@ class StoriesController < ApplicationController
         @story.destroy
 
         redirect_to :root, :notice => "Story deleted."
-        
-        expire_fragment('recent_unfinished_stories')
-        expire_fragment('recent_finished_stories')
     end
 
 end
