@@ -60,6 +60,7 @@ GEM
       cucumber (>= 1.2.0)
       nokogiri (>= 1.5.0)
       rails (~> 3.0)
+    dalli (2.6.2)
     database_cleaner (0.9.1)
     debugger (1.5.0)
       columnize (>= 0.3.1)
@@ -180,6 +181,7 @@ DEPENDENCIES
   bootstrap-sass (~> 2.3.0.1)
   coffee-rails (~> 3.2.1)
   cucumber-rails
+  dalli
   database_cleaner
   debugger
   devise

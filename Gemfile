@@ -49,6 +49,8 @@ gem 'google-analytics-rails', '~> 0.0.4'
 
 gem "tweet-button"
 
+gem 'dalli'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
