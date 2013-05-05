@@ -2,6 +2,7 @@ class Story < ActiveRecord::Base
   attr_accessible :title, :max_sentences, :total_slices, :complete, :user_id, :slices_attributes
 
   validates :title, :presence => true
+  validates_length_of :title, :maximum => 99
   validates :total_slices, :presence => true, :numericality => { :only_integer => true, :greater_than_or_equal_to => 2,  :less_than => 99 }
   validates :max_sentences, :presence => true, :numericality => { :only_integer => true, :less_than => 15 }
 
@@ -74,6 +75,14 @@ class Story < ActiveRecord::Base
   def generate_slice_bar(width)
       ratio = ((slices_done.to_f / total_slices.to_f) * 100).to_i
       markup = "<div class='slicebar' style='width:#{width}%;'><div class='slice-percentage' style='width:#{ratio}%;'></div></div>"
+  end
+
+  def twitterfy_title
+      if self.title.length > 50
+          self.title.slice(0..50) + "..."
+      else
+          self.title
+      end
   end
 
   private

@@ -47,6 +47,8 @@ gem 'google-webfonts'
 
 gem 'google-analytics-rails', '~> 0.0.4'
 
+gem "tweet-button"
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
