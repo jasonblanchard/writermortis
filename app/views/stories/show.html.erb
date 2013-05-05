@@ -23,7 +23,7 @@
             <h3><%= @story.title %></h3>
             <% if @story.slices.last %>
 
-                <% cache("story#{@story.id}-#{@story.updated_at.to_i}") do %>
+                <% cache("story#{@story.id}-#{@story.updated_at.to_i}", :expires_in => 1.hour) do %>
                     <%= simple_format @story.last_two_slices %>
                 <% end %>
 

@@ -6,13 +6,13 @@
             <%= link_to 'New Story', new_story_path, :class => 'btn' %>
             <% unless @my_unfinished_stories.empty? %>
                 <hr />
-                <% cache ("user_#{current_user.id}_#{current_user.updated_at.to_i}_unfinished_stories") do %>
+                <% cache("user_#{current_user.id}_#{current_user.updated_at.to_i}_unfinished_stories", :expires_in => 1.hour) do %>
                     <%= render 'stories/story_list', :stories => @my_unfinished_stories %>
                 <% end %>
             <% end %>
             <% unless @my_finished_stories.empty? %>
                 <hr />
-                <% cache ("user_#{current_user.id}_#{current_user.updated_at.to_i}_finished_stories") do %>
+                <% cache("user_#{current_user.id}_#{current_user.updated_at.to_i}_finished_stories", :expires_in => 1.hour) do %>
                     <%= render 'stories/story_list', :stories => @my_finished_stories %>
                 <% end %>
             <% end %>
@@ -29,13 +29,13 @@
         </div>
 
         <div class='span5 frontpage-section'>
-        <% cache('recent_unfinished_stories') do %>
-            <%= render 'stories/story_list', :stories => @incomplete_stories %>
+            <% cache('recent_unfinished_stories', :expires_in => 1.hour) do %>
+                <%= render 'stories/story_list', :stories => @incomplete_stories %>
         <% end %>
         </div>
 
         <div class='span6 frontpage-section'>
-            <% cache('recent_finished_stories') do %>
+            <% cache('recent_finished_stories', :expires_in => 1.hour) do %>
                 <%= render 'stories/story_list', :stories => @complete_stories %>
             <% end %>
         </div>

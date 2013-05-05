@@ -20,7 +20,7 @@
     <div class="span4 frontpage-section">
 
         <div>
-            <% cache('recent_unfinished_stories') do %>
+            <% cache('recent_unfinished_stories'), :expires_in => 1.hour do %>
                 <%= render 'stories/story_list', :stories => @incomplete_stories %>
             <% end %>
             <%= link_to 'More Stories >>', stories_path, :class => 'btn' %>
