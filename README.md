@@ -13,6 +13,6 @@ Run `git clone https://github.com/jasonblanchard/writermortis.git`
 
 `cp config/application.yml.example config/application.yml` and fill out variables
 
-Run `rake db:migrate` to set up the schema
+Run `rake db:migrate` to set up the schema (or `rake db:schema:load` if its a fresh database)
 
 Run `rake db:seed` to initialize examples and default values (This part is IMPORTANT!)
